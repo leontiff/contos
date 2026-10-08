@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#141110">
+<meta name="author" content="Leon Tiff">
+<meta name="description" content="A caixa de losartana estava sobre a geladeira enferrujada.">
+<title>Morfina — Leon Tiff</title>
+<style>
+    :root{
+      color-scheme: dark;
+      --bg:#141110; --panel:#1c1717;
+      --text:#ece3d4; --muted:#b7a894; --dim:#8f8272;
+      --accent:#c28b5a; --accent-hi:#e0ab77;
+      --line:rgba(236,227,212,.12);
+    }
+    *{ box-sizing:border-box }
+    html{ -webkit-text-size-adjust:100% }
+    body{
+      margin:0;
+      color:var(--text);
+      background-color:var(--bg);
+      background-image:radial-gradient(90rem 50rem at 50% -22rem,#261b1a 0%,rgba(20,17,16,0) 62%);
+      background-repeat:no-repeat;
+      font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua","Times New Roman",serif;
+      font-size:16px;
+      line-height:1.6;
+    }
+    ::selection{ background:rgba(194,139,90,.35) }
+    img{ max-width:100%; height:auto }
+    a{ color:inherit }
+    a:focus-visible{ outline:2px solid var(--accent-hi); outline-offset:3px; border-radius:3px }
+    .wrap{ max-width:62rem; margin:0 auto; padding-left:clamp(1.05rem,4vw,2rem); padding-right:clamp(1.05rem,4vw,2rem) }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0 }
+
+    /* topo das páginas de conto */
+    .topbar{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding-top:1.2rem; padding-bottom:1.05rem; border-bottom:1px solid var(--line) }
+    .topbar a{ color:var(--muted); text-decoration:none; font-size:.98rem; transition:color .2s ease }
+    .topbar a:hover{ color:var(--accent-hi) }
+    .topbar .who{ color:var(--dim); font-size:.78rem; letter-spacing:.3em; text-transform:uppercase; padding-left:.3em }
+
+    /* índice */
+    .masthead{ text-align:center; padding-top:clamp(3rem,8vw,5.2rem); padding-bottom:clamp(1.6rem,4vw,2.6rem) }
+    .masthead h1{ margin:0; font-weight:500; font-size:clamp(2rem,5.6vw,2.9rem); letter-spacing:.22em; text-transform:uppercase; padding-left:.22em; color:#f2e9da }
+    .masthead .tagline{ margin:.95rem 0 0; color:var(--dim); font-size:.72rem; letter-spacing:.6em; text-transform:uppercase; padding-left:.6em }
+    .hairline{ width:4.2rem; height:1px; background:var(--line); margin:1.7rem auto 0 }
+    .grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(1.3rem,3.5vw,2.1rem); padding-top:clamp(.6rem,2vw,1.2rem); padding-bottom:clamp(1rem,4vw,2.5rem) }
+    .card{ flex:1 1 16.5rem; max-width:21.5rem; display:flex; flex-direction:column; background:var(--panel); border:1px solid var(--line); border-radius:.75rem; overflow:hidden; text-decoration:none; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease }
+    .card:hover{ transform:translateY(-4px); border-color:rgba(194,139,90,.5); box-shadow:0 24px 48px -22px rgba(0,0,0,.85) }
+    .card img{ display:block; width:100% }
+    .card .body{ display:flex; flex-direction:column; flex:1; gap:.55rem; padding:1.05rem 1.15rem 1.2rem }
+    .card h2{ margin:0; font-size:1.3rem; font-weight:600; letter-spacing:.02em }
+    .card .teaser{ margin:0; color:var(--muted); font-size:.95rem; line-height:1.62 }
+    .card .cta{ margin-top:auto; padding-top:.35rem; color:var(--accent); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase }
+    .card:hover .cta{ color:var(--accent-hi) }
+
+    /* página do conto */
+    .story{ max-width:43rem; margin:0 auto; padding:clamp(1.9rem,5vw,3.1rem) clamp(1.05rem,4vw,2rem) 0 }
+    .cover{ margin:0 auto clamp(2.2rem,5.5vw,3.1rem); width:min(20.5rem,72vw) }
+    .cover img{ display:block; width:100%; border-radius:.55rem; border:1px solid var(--line); box-shadow:0 34px 64px -30px rgba(0,0,0,.9) }
+    article p{ margin:0 0 1.08em; font-size:clamp(1.04rem,.99rem + .3vw,1.16rem); line-height:1.85; text-align:justify; text-justify:inter-word; hyphens:none }
+    article p.scene{ text-align:center; color:var(--dim); letter-spacing:.62em; text-indent:.62em; margin:2em 0 1.85em; font-size:.95em }
+    @media (max-width:560px){ article p{ text-align:left } }
+
+    /* colofão */
+    .colophon{ margin-top:clamp(2.8rem,7vw,4.6rem); border-top:1px solid var(--line); color:var(--muted); font-size:.93rem }
+    .colophon .wrap{ padding-top:1.7rem; padding-bottom:2.3rem; text-align:center; line-height:2 }
+    .colophon .name{ color:var(--dim); font-size:.76rem; letter-spacing:.34em; text-transform:uppercase; padding-left:.34em; margin-bottom:.4rem }
+    .colophon a{ text-decoration:none; border-bottom:1px solid transparent; transition:color .2s ease,border-color .2s ease }
+    .colophon a:hover{ color:var(--accent-hi); border-bottom-color:var(--accent-hi) }
+    .colophon .meta{ margin:.15rem 0 0; display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:.15em .6em }
+    .colophon .sep{ color:var(--dim) }
+    @media (max-width:560px){ .colophon .meta{ flex-direction:column; gap:.05em; align-items:center } .colophon .sep{ display:none } }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <header class="topbar">
+      <a href="index.html">← contos</a>
+      <span class="who">Leon Tiff</span>
+    </header>
+  </div>
+  <main class="story">
+    <figure class="cover">
+      <img src="morfina_onnow.png" alt="Capa do conto Morfina — Leon Tiff" width="1122" height="1402">
+    </figure>
+    <h1 class="sr-only">Morfina</h1>
+    <article>
+        <p>A caixa de losartana estava sobre a geladeira enferrujada, ao lado de uma xícara de café que alguém havia esquecido. Plínio apanhou a caixa e saiu pelo terreiro. O Uno azul roncava em ponto morto, tremendo a lataria.</p>
+        <p>— Ô, pai! Teu remédio! — gritou ele, jogando a caixa pela janela aberta.</p>
+        <p>O pai pegou no ar e enfiou no bolso da camisa xadrez sem olhar. No banco de trás, a mãe segurava a Bíblia no colo e um pacote aberto de bolacha recheada. Ela se inclinou para a frente.</p>
+        <p>— Se o bezerro piorar, liga pro Zé Vicente. Não tenta fazer nada sozinho não, Carlos.</p>
+        <p>Carlos se encostou na porteira de madeira, descalço, vestindo uma bermuda caqui surrada e a camiseta cinza suja de terra. Levantou a mão num aceno preguiçoso.</p>
+        <p>— Tá bom, mãe.</p>
+        <p>— E não deixem a porta da dispensa aberta. Os gatos <em>tão</em> roubando as linguiças.</p>
+        <p>— Tá bom.</p>
+        <p>O carro arrancou, levantando terra vermelha. Plínio ficou no meio do terreiro até ver a traseira sumir na curva da estrada. Restou só o latido do cachorro do vizinho, atiçado pelo barulho do motor.</p>
+        <p>Carlos cuspiu de lado e entrou na casa. Plínio o acompanhou.</p>
+        <p>A sala de tijolo cru já parecia vazia demais sem a mãe resmungando no fogão e o pai pigarreando no quarto. Carlos havia servido no Exército dois anos antes; voltou com uma âncora tatuada no antebraço que a mãe detestava e, desde então, circulava pela roça com o desinteresse de quem visita parentes distantes.</p>
+        <p>— Vou dormir um pouco — disse Carlos, jogando o corpo no sofá. — Acordei cedo demais hoje.</p>
+        <p>Plínio não respondeu. Tirou o celular do bolso, olhou para o indicador de sinal — para variar, fraco — e guardou-o novamente.</p>
+        <p>— Plínio. — O irmão chamou do sofá, de olhos fechados. — Não fica aí parado feito poste. Vai fazer alguma coisa.</p>
+        <p>Plínio deu de ombros. Não era nada, apenas o início de um dia sem os pais por perto cobrando serviço que eles já estavam cansados de saber.</p>
+        <p>Entrou na cozinha, abriu a geladeira sem fome e bateu a porta.</p>
+        <p>Carlos se mexeu no estofado, abrindo os olhos.</p>
+        <p>— Olha a geladeira... Vê se fechou direito, tá fazendo um barulho esquisito.</p>
+        <p>— Fechei.</p>
+        <p>— Olha de novo. Tá fazendo barulho ainda.</p>
+        <p>Plínio empurrou a porta novamente até a borracha vedar com um estalo seco. Encostou no balcão de cimento e encarou o irmão. Carlos se espreguiçou, esticando o braço para fora do sofá com o desenho da âncora voltado para cima.</p>
+        <p>— Temos que olhar aquele bezerro — disse Carlos, sentando-se devagar. — Aquela bixeira no umbigo tá piorando.</p>
+        <p>— Eu vi.</p>
+        <p>— Tá fedendo carniça já. <em>Vâmo</em> lá comigo dar uma olhada.</p>
+        <p>O curral ficava depois da baixada do terreiro. O bezerro, um macho castanho sem marcação, estava encostado na taipa, com a cabeça baixa. O umbigo inchado, escuro no centro, acumulava uma secreção amarela nos pelos e larvas vivas. O cheiro podre veio forte antes mesmo de chegarem perto.</p>
+        <p>Carlos agachou-se e firmou a cabeça do bicho com a mão. O bezerro mal reagiu, apenas moveu a orelha.</p>
+        <p>— Tá fodido — disse Carlos. — Isso aqui precisa de injeção. A pomada não vai dar conta.</p>
+        <p>Plínio deu um passo atrás, puxando a gola da camisa para tapar o nariz.</p>
+        <p>— O que vamos fazer?</p>
+        <p>— Temos que dar antibiótico.</p>
+        <p>Carlos soltou o animal e limpou a mão na lateral da bermuda.</p>
+        <p>— Vou ter que ir pra cidade, senão <em>vâmo</em> perder esse bezerro — disse Carlos, levantando-se. — Vou de moto, rapidinho.</p>
+        <p>— Vou também, <em>uai</em>.</p>
+        <p>— Pra quê? Vai lá tratar das galinhas e passa um café pra <em>nóis</em> que já tô voltando. Uma horinha e já tô aqui.</p>
+        <p>Plínio observou o irmão caminhar até a moto e pegar a chave esquecida sobre o esteio.</p>
+        <p>— O tempo tá fechando, <em>sô</em>. Vai rápido que vai chover.</p>
+        <p>Carlos deu de ombros, montou na CG e partiu.</p>
+        <p>Plínio permaneceu no terreiro até o barulho do motor sumir na curva da estrada — hábito que cultivou desde que era pequeno. Na baixada, o bezerro continuava imóvel junto à taipa do curral. Retornou à casa e sentou-se no sofá. Ficou ali encarando o teto de caibros, sem pressa.</p>
+        <p>Levantou-se mais tarde apenas para jogar milho no galinheiro e coar um café que nem chegou a beber. De volta ao estofado, acabou cochilando até o barulho dos primeiros pingos de chuva estalar nas telhas.</p>
+        <p>Já havia passado mais de uma hora, até que o celular vibrou sobre a mesa: Carlos. Atendeu no segundo toque.</p>
+        <p>— Ô, Plínio. É o Zé Vicente. Tá <em>bão</em>?</p>
+        <p>A ligação chiava, entrecortada. Zé Vicente morava próximo, na divisa com as terras do seu Jorge, e tinha o costume de falar com o aparelho afastado do rosto.</p>
+        <p>— Zé? Cadê o Carlos? — Plínio bateu os olhos no relógio de parede.</p>
+        <p>— O Carlos tá aqui no hospital, rapaz. Ele se acidentou no trevo da cidade. Mas fica tranquilo que ele tá bem.</p>
+        <p>Plínio apertou o telefone contra o ouvido sem dizer nada.</p>
+        <p>— Tava vindo pra cá na moto dele e uma caminhonete deu uma fechada. Ele caiu.</p>
+        <p>— O que aconteceu com ele? Por que tá no hospital?</p>
+        <p>— Quebrou os braços. Mas ele tá <em>bão</em>, foi só isso, não se preocupa não.</p>
+        <p>— Os dois?</p>
+        <p>— Foi. Tô aqui no hospital com ele, <em>tão</em> terminando de engessar agora.</p>
+        <p>Plínio correu os olhos pela cozinha vazia.</p>
+        <p>— Que horas foi isso?</p>
+        <p>— Faz uma hora, mais ou menos. Eu tava passando no trevo bem na hora e vi o tombo. Aí parei e trouxe ele pra cá.</p>
+        <p>— Ele tá acordado?</p>
+        <p>— Tá, mas com dor. Deram remédio pra ele na veia. Ele que pediu pra eu te ligar. Falou <em>procê</em> não avisar o seu Antônio e a dona Nazaré.</p>
+        <p>— Por quê?</p>
+        <p>— Porque a dona Nazaré vai ficar preocupada e querer voltar. Vai preocupar ela à toa. Ele falou que depois que passar o susto, ele mesmo conta.</p>
+        <p>Plínio passou a mão livre pela nuca.</p>
+        <p>— E a moto?</p>
+        <p>— A moto tá na caçamba. Assim que liberarem ele, levo ele aí. A moto eu deixo aí amanhã cedo, mas deu uma estragada boa nela, rapaz.</p>
+        <p>— Tá.</p>
+        <p>— Fica sossegado. Ele tá <em>bão</em>. Só vai ter que ficar de molho por um tempo.</p>
+        <p>— Quanto tempo <em>cês</em> vão demorar aí?</p>
+        <p>— Não sei, <em>sô</em>. Saindo daqui eu te ligo de novo.</p>
+        <p>— Tá. Obrigado, Zé.</p>
+        <p>Plínio desligou. Pensou em como seriam as semanas seguintes com Carlos naquela situação.</p>
+        <p class="scene">• • •</p>
+        <p>A suspensão gasta rangeu na porteira antes do fim da tarde. Plínio saiu pela cozinha e esperou no terreiro, que agora estava ensopado pela chuva.</p>
+        <p>A caminhonete velha parou rastejando no barro vermelho. Zé Vicente desceu apoiando as botinas sujas no estribo. Era um homem atarracado, de pescoço curto e pele avermelhada, com um boné surrado do Banco do Brasil enterrado na cabeça.</p>
+        <p>— Trouxe a encomenda — brincou Zé Vicente, dando a volta no capô e puxando o trinco do passageiro.</p>
+        <p>Carlos começou a sair com dificuldade. Colocou uma perna para fora e virou o tronco com cuidado. Os dois antebraços vinham engessados até a palma, suspensos por tiras de pano amarradas ao pescoço, mantendo os cotovelos dobrados junto ao peito. O gesso do braço direito trazia uma mancha avermelhada de sangue seco. As pontas dos dedos apareciam arroxeadas, imóveis.</p>
+        <p>— Pega ele aí, rapaz. Tá meio grogue do remédio.</p>
+        <p>Plínio deu dois passos rápidos e segurou o irmão pela cintura antes que ele perdesse o apoio no estribo. Carlos ergueu o rosto devagar; tinha os olhos baços, fundos, e uma crosta seca de saliva nos cantos da boca.</p>
+        <p>— Quebrou os dois... Puta que pariu — murmurou Plínio, sem tirar os olhos do irmão.</p>
+        <p>— Os dois. O esquerdo foi só trinca, mas o direito quebrou no meio. Falaram no posto que vai demorar pra colar. Mas graças a Deus não aconteceu o pior.</p>
+        <p>Carlos soltou um resmungo arrastado entre os dentes, tombando a testa contra o ombro de Plínio.</p>
+        <p>— Tá meio grogue — explicou Zé Vicente. — Deram morfina lá no hospital. Ele tava urrando de dor, coitado.</p>
+        <p>Zé Vicente ajudou a conduzi-lo até a sala.</p>
+        <p>— Qualquer coisa se precisar me liga. A moto tá lá no posto do Dito. Amanhã eu mando o Juninho trazer. Ou depois. Vou ver.</p>
+        <p>— Obrigado, Zé.</p>
+        <p>— Nada. Cuida dele aí. E não deixa ele dormir de bruços. Vou chegar lá, fica com Deus.</p>
+        <p>— Amém, Zé.</p>
+        <p>Carlos continuou encostado em Plínio, arrastando os pés pelo chão de cimento queimado. Ergueu a cabeça aos poucos, piscando pesado contra a lâmpada amarela.</p>
+        <p>— Tô com sede.</p>
+        <p>Plínio o arrastou até a cozinha e o ajudou a se sentar na cadeira de plástico.</p>
+        <p>— Senta direito.</p>
+        <p>Carlos soltou uma risada frouxa, quase sem ar.</p>
+        <p>— Não consigo. Tô sem mão.</p>
+        <p>Plínio pegou uma caneca de alumínio no filtro de barro, encheu-a até a metade e encostou a borda nos lábios do irmão. Carlos bebeu rápido, com parte da água escorrendo pelo canto da boca até molhar o peito da camiseta. Tomou o resto e jogou a cabeça para trás.</p>
+        <p>— Tô fedendo — disse Carlos.</p>
+        <p>— Tá mesmo.</p>
+        <p>— Preciso mijar.</p>
+        <p>Plínio encarou o irmão por um instante. Carlos não esboçou reação para se levantar.</p>
+        <p>— Então levanta.</p>
+        <p>Carlos se ergueu aos trancos. Plínio passou o braço por baixo da axila do irmão, amparando o peso morto do corpo e sentindo o cheiro forte de suor.</p>
+        <p>— <em>Vâmo</em> lá.</p>
+        <p>Os dois atravessaram o corredor curto.</p>
+        <p>— Até parece que quebrou as pernas, <em>uai</em> — reclamou Plínio.</p>
+        <p>— Eu tô grogue daquela porra de remédio. Morfina, me deram... E mais outro lá... Não sei... — A fala entrecortada. — <em>Cê</em> tá fedendo, tá doido...</p>
+        <p>— Eu? É <em>ocê</em> que tá com essa subaqueira no meu nariz, <em>sô</em>!</p>
+        <p>Pararam diante do vaso sanitário.</p>
+        <p>— Abre meu zíper. Não consigo.</p>
+        <p>Plínio soltou o ar pelos dentes, sem responder. Abaixou-se um pouco, desabotoou o cós da calça do irmão e desceu o zíper. Puxou o elástico da cueca surrada para baixo. Carlos permaneceu quieto, a respiração curta saindo pela boca entreaberta enquanto soltava o jato longo contra a louça. Mantinha o quadril empurrado ligeiramente para a frente, e Plínio sustentava o pano rebaixado com as pontas dos dedos. Um gemido baixo de alívio escapou da garganta de Carlos.</p>
+        <p>— Acabou?</p>
+        <p>— Acabei.</p>
+        <p>Plínio ajeitou a roupa com rapidez, subiu o zíper sem tocar na pele do irmão e abotoou. Carlos não olhou para baixo, manteve os olhos fixos na parede.</p>
+        <p>— Vou te levar pro sofá — disse Plínio.</p>
+        <p>— Tô com fome.</p>
+        <p>— Senta na cozinha, então.</p>
+        <p>Carlos se deixou arrastar pelo corredor, desabando de novo na cadeira de plástico.</p>
+        <p>— O bezerro vai morrer — murmurou Plínio.</p>
+        <p>— Que se foda esse bezerro. Eu que tô morrendo, <em>uai</em>.</p>
+        <p>— Que morrendo o que?! Para de besteira, <em>sô</em>.</p>
+        <p>— Amanhã eu não consigo fazer nada.</p>
+        <p>Ergueu os antebraços engessados alguns centímetros e os deixou cair de novo sobre a mesa.</p>
+        <p>— Nada — repetiu Carlos, fechando os olhos de vez.</p>
+        <p>Plínio retirou a manteiga da geladeira e a passou numa fatia de pão amanhecido que estava sobre a mesa.</p>
+        <p>— Ô... Acorda pra comer.</p>
+        <p>Carlos abriu os olhos devagar. Piscou contra a claridade antes de firmar a vista no irmão.</p>
+        <p>— Tô com fome.</p>
+        <p>— <em>Cê</em> já falou. Come aqui.</p>
+        <p>Plínio aproximou o pedaço da boca do irmão. Carlos abriu os lábios, mordeu e mastigou sem pressa. A manteiga escorreu pelo canto da boca. Plínio esperou que ele engolisse para limpar a pele com a ponta do polegar. Esfregou o dedo na própria calça suja de barro e levou novamente o pão à boca.</p>
+        <p>— Tá sem sal — disse Carlos.</p>
+        <p>— Não botei sal.</p>
+        <p>— A mãe bota.</p>
+        <p>— A mãe não tá aqui. Come logo.</p>
+        <p>Carlos deu mais uma mordida, agora encarando Plínio com as pupilas dilatadas. Não desviou o olhar.</p>
+        <p>— Que <em>cê</em> tá me encarando?</p>
+        <p>— Tô encarando não — respondeu enquanto mastigava.</p>
+        <p>— Tá sim.</p>
+        <p>Carlos soltou uma risada curta, quase um sopro.</p>
+        <p>— Tô vendo o tanto que <em>ocê</em> é bonito, <em>uai</em>.</p>
+        <p>— <em>Uai</em>, tá doido?</p>
+        <p>Carlos não respondeu. Mastigou o resto até engolir.</p>
+        <p>— Tô fedendo, não tô?</p>
+        <p>— Tá. Tá com cheiro de subaqueira e hospital.</p>
+        <p>Carlos deu um sorriso frouxo.</p>
+        <p>— Quero tomar banho.</p>
+        <p>Plínio parou com a mão no ar.</p>
+        <p>— <em>Cê</em> vai ter que me dar banho — Carlos continuou.</p>
+        <p>— Quê?</p>
+        <p>— Banho. Não consigo...</p>
+        <p>Plínio largou o restante do pão sobre a mesa. Apesar de óbvio, ainda não havia pensado nisso.</p>
+        <p>— Tem que ser agora? Espera <em>cê</em> melhorar um pouco.</p>
+        <p>— Mas eu tô <em>bão</em>. Quero tirar essa inhaca do corpo.</p>
+        <p>— <em>Cê</em> tá dopado. Pode escorregar.</p>
+        <p>— É só <em>ocê</em> me segurar, <em>uai</em>.</p>
+        <p>Carlos tentou firmar os pés no chão e levantar o corpo. Plínio deu um passo e segurou o tronco do irmão. O peso dele veio inteiro contra o peito de Plínio.</p>
+        <p>— Segura direito — murmurou Carlos. — Tô tonto.</p>
+        <p>— <em>Ocê</em> é muito mole, Carlos. Nunca vi ninguém dopado assim porque quebrou os braços.</p>
+        <p>— <em>Cê</em> fala porque não foi <em>ocê</em> — respondeu sem parecer incomodado.</p>
+        <p>Plínio conduziu o irmão até o banheiro. A lâmpada piscou antes de firmar uma luz amarela. O chuveiro enferrujado pendia torto, com o fio descascado saindo do cano.</p>
+        <p>— Senta no vaso — disse Plínio.</p>
+        <p>— Não quero cagar. Quero tomar banho.</p>
+        <p>— Cagar não, porra! Só <em>procê</em> não cair. — O tom de voz agora impaciente.</p>
+        <p>— Vou tomar banho no vaso?</p>
+        <p>— Não... — Plínio suspirou. — Fica quieto, Carlos. <em>Cê</em> tá chato igual bêbado.</p>
+        <p>Plínio girou o registro. A água espirrou fria antes de chiar na resistência e soltar vapor. Virou-se para o irmão.</p>
+        <p>— Tira minha roupa — disse Carlos.</p>
+        <p>Plínio deu um passo à frente. Puxou a barra da camiseta para cima, devagar. Carlos levantou os cotovelos engessados até onde a atadura permitia, soltando um gemido curto de dor. O tecido subiu pela cabeça, descobrindo o peito largo e a barriga coberta de pelos escuros. Agachou-se logo em seguida e desatou as botinas do irmão, puxando um pé de cada vez. As meias pretas saíram empastadas de suor.</p>
+        <p>Soltou o botão de metal e desceu o zíper da calça. A peça caiu até os tornozelos. Carlos vestia uma boxer cinza, gasta, com o elástico frouxo e um pequeno rasgo perto da coxa.</p>
+        <p>Plínio fixou os olhos no volume entre as pernas do irmão. Carlos mantinha a cabeça erguida, com a vista perdida no teto.</p>
+        <p>Desceu as mãos e puxou a cueca até os joelhos. O pau mole e peludo tombou para fora. O cheiro de suor abafado e pele quente imediatamente atingiu suas narinas. Carlos ergueu uma perna, depois a outra, se livrando das roupas. Plínio chutou a trouxa de roupa para o canto seco junto à porta.</p>
+        <p>— Vai — disse Carlos, apontando o queixo para o <em>box</em>.</p>
+        <p>— Espera, <em>sô</em>!</p>
+        <p>Plínio o conduziu pelo braço, a água espirrando contra o cimento e molhando a barra da própria calça. Segurou Carlos pelo quadril e o empurrou devagar para debaixo do chuveiro, cuidando inutilmente para que o gesso amarrado ao pescoço ficasse fora do jato direto. A água correu pelo corpo do irmão, ensopando os pelos do peito, a curva da barriga e o pau mole.</p>
+        <p>Plínio apanhou o sabonete e esfregou-o nas palmas até formar uma espuma densa. Começou pelo pescoço do irmão, esfregando com cuidado ao redor das ataduras presas à nuca. Esfregou os ombros largos, as axilas e as costelas, deslizando a pele áspera das mãos contra o tronco molhado. A água do chuveiro já encharcava a própria camisa.</p>
+        <p>— Tá molhando tua roupa, idiota — disse Carlos, baixando a cabeça e olhando para Plínio.</p>
+        <p>— Não tem como não molhar, <em>uai</em>.</p>
+        <p>— Tira, <em>uai</em>. <em>Cê</em> tá tudo sujo também.</p>
+        <p>— <em>Uai</em>, e <em>nóis</em> vai ficar pelado aqui?</p>
+        <p>Carlos soltou uma risada mole e cuspiu a água que entrava pelo canto da boca.</p>
+        <p>— <em>Uai</em>, e daí? Para de ser bobo, <em>sô</em>. Vai ficar aí molhando igual jeca?</p>
+        <p>Plínio encarou o irmão. O rosto de Carlos tinha voltado àquela quietude pesada da morfina, com o olhar perdido na parede.</p>
+        <p>Plínio hesitou por alguns segundos até decidir, de sopetão, tirar a roupa. Puxou a camiseta ensopada pela cabeça e a atirou para fora do <em>box</em>. Puxou a calça e a cueca de uma só vez, arremessando todas as peças para fora.</p>
+        <p>— Lava minhas costas — disse Carlos, quase de olhos fechados.</p>
+        <p>Virou o corpo devagar, escorando a testa no azulejo manchado enquanto a água batia direto nas escápulas. Plínio passou as mãos espumadas pelas costas largas do irmão, acompanhando o sulco da coluna até a lombar. Olhou para as nádegas cobertas de pelos escuros. Desceu as mãos e ensaboou rapidamente cada um dos lados.</p>
+        <p>— Lava minha bunda direito, <em>sô</em>!</p>
+        <p>— Já lavei, <em>uai</em>.</p>
+        <p>— Lavou não. Vou ficar com o cu fedendo? Lava...</p>
+        <p>Plínio travou o maxilar. Olhou novamente e enfiou a mão espumada entre a bunda do irmão. Os dedos deslizaram pela pele escorregadia, contornando a entrada do cu. Uma sensação estranha tomou conta, fazendo-o recolher a mão de imediato.</p>
+        <p>— Pronto. Vira.</p>
+        <p>Carlos se virou, encostando a nuca de novo na parede molhada.</p>
+        <p>Plínio baixou a vista para a virilha do irmão. Engoliu em seco. Levou a palma da mão aos pelos pubianos empastados de sabão. Fechou os dedos ao redor da base do pau, subindo num movimento contínuo até a glande. Desceu a mão pelo saco, sustentando o peso solto dos testículos entre os dedos, manipulando a pele enrugada como quem cumpre uma obrigação de rotina. Não ficou muito tempo ali. Jogou um punhado de água por cima e escorregou o sabonete pelas coxas.</p>
+        <p>— Lava direito — reclamou Carlos, com a voz frouxa entre os lábios úmidos. — Não lavou direito...</p>
+        <p>— Ah, Carlos. Não lavou direito o quê?</p>
+        <p>— Meu pinto... A cabeça... Não lavou.</p>
+        <p>Plínio olhou novamente para o pau de Carlos, como se encarasse uma passagem secreta. O sabonete escapou dos dedos lisos e bateu no ralo com um barulho oco. Abaixou-se e o segurou firme novamente. Carlos baixou as pálpebras pesadas, fitando a mão do irmão que ainda tocava de leve a sua coxa direita.</p>
+        <p>— Anda logo. Para de frescura — disse Carlos.</p>
+        <p>— Tá, espera.</p>
+        <p>Plínio suspirou fundo. Fitou a virilha do irmão e notou que o pau não estava tão mole como antes. Sem dizer nada, fechou a mão cheia de espuma em torno da base e puxou a pele para trás, descobrindo a cabeça. A carne escura deslizou macia sob os dedos lambuzados de sabão. Repetiu o movimento com calma. Carlos soltou o ar mais pesado pela boca, mas manteve a cabeça encostada na parede. Plínio limpou as dobras entre a glande e o prepúcio, sentindo o pau crescer entre seus dedos. Decidiu parar, mesmo que, no fundo, sentisse uma estranha vontade de continuar.</p>
+        <p>— Continua — disse Carlos, com a voz arrastada, mas firme.</p>
+        <p>Plínio não respondeu. Levou novamente a mão, sentindo um misto de medo e curiosidade. Voltou a movimentar os dedos, apertando de leve a haste.</p>
+        <p>Carlos afastou as pernas mais um palmo, apoiando a bunda no azulejo molhado. O pau já estava quase duro. Plínio baixou os olhos e olhou para o próprio pau, que também estava ficando duro. Seu coração disparou. Tentou torcer o quadril de lado para esconder, sem sucesso.</p>
+        <p>Carlos inclinou o rosto para a frente e olhou para baixo. Olhou para o próprio pau e, em seguida, para o de Plínio. Não desviou o olhar.</p>
+        <p>Plínio tirou a mão e desceu o sabonete pela coxa de Carlos, fingindo terminar o enxágue.</p>
+        <p>— Tá duro também... O teu — disse Carlos, num tom seco de quem apenas constata um fato.</p>
+        <p>— Não — respondeu Plínio, curvando o tronco para a frente e aproximando ainda mais o rosto do quadril do irmão.</p>
+        <p>— Tá sim. Vai, continua — falou Carlos, com uma naturalidade crua.</p>
+        <p>Plínio não retrucou. Segurou novamente o pau do irmão e começou a movimentar. Com a mão esquerda livre, segurou a base do próprio pau, mexendo em sincronia. Carlos viu o gesto e entreabriu os lábios, acompanhando com o olhar o movimento duplo.</p>
+        <p>A fricção ganhou ritmo, com o estalo da mão molhada contra a pele somando-se ao chiado constante da água.</p>
+        <p>— Caralho — murmurou Carlos, baixinho.</p>
+        <p>Plínio encarou o rosto do irmão. Ao notar o olhar fixo de Carlos, desviou o seu, inseguro.</p>
+        <p>— Deixa eu ver — pediu Carlos.</p>
+        <p>— Ver o quê?</p>
+        <p>— Teu pau.</p>
+        <p>Plínio recuou meio passo. Carlos arqueou o corpo para frente.</p>
+        <p>— Cuidado pra não cair — alertou Plínio.</p>
+        <p>— Nunca tinha visto desse jeito.</p>
+        <p>— O quê?</p>
+        <p>— Teu pau duro.</p>
+        <p>Plínio soltou uma risada curta, sem jeito, mas manteve a pegada firme no pau do irmão.</p>
+        <p>— Vai, continua.</p>
+        <p>Plínio apertou o ritmo, batendo o pau de Carlos até o limite da cabeça exposta, sem soltar o próprio.</p>
+        <p>— Isso... — Carlos soltou o ar entre os dentes. — Vai...</p>
+        <p>Continuaram ali por mais alguns minutos. O som das mãos e das respirações cada vez mais alto.</p>
+        <p>O corpo de Carlos estremeceu de repente, os joelhos se dobraram. Sem aviso, o primeiro jato de porra saiu, atingindo a bochecha de Plínio. Carlos soltou um gemido alto que assustou Plínio. Plínio passou as costas da mão esquerda pelo rosto, espalhando o gozo morno na pele úmida.</p>
+        <p>— Ah não, viado, você gozou na minha cara, porra! — A tentativa de parecer incomodado soou pouco convincente.</p>
+        <p>Carlos não disse nada, manteve-se de olhos fechados, ofegante.</p>
+        <p>Plínio soltou o pau do irmão. Levantou-se e fechou o registro do chuveiro sem ter tomado o próprio banho. Puxou a toalha cinzenta pendurada do lado de fora do <em>box</em> e secou o corpo de Carlos com pressa, sem olhar para o rosto dele. Em seguida, passou o tecido áspero no próprio corpo. Carlos manteve o olhar perdido em algum ponto da parede atrás de Plínio, evitando contato visual.</p>
+        <p>Secos, saíram os dois nus do banheiro abafado, Plínio amparando o irmão pelo ombro. Carlos virou a cabeça devagar, os olhos ainda vermelhos.</p>
+        <p>— Quero dormir — disse Carlos.</p>
+        <p>— Tá.</p>
+        <p>Foram para o quarto. Plínio ajudou Carlos a se deitar na cama. Pegou duas bermudas limpas no guarda-roupas e vestiu a própria primeiro. Em seguida, enfiou a outra pelas pernas do irmão, sem cueca.</p>
+        <p>— Apaga a luz — murmurou Carlos, já de olhos fechados.</p>
+        <p>Plínio levou a mão ao interruptor. Antes de apagar a luz, olhou rapidamente para o irmão deitado de costas, de boca entreaberta e com os dois braços engessados sobre o peito. Apagou. Saiu do quarto, sabendo que não pregaria os olhos tão cedo. Foi até a cozinha, encheu uma caneca com o resto de café e sentou-se na cadeira de plástico, encarando a superfície da mesa.</p>
+        <p>Mais tarde, deitou-se no sofá e tentou gozar, mas a preocupação impediu o tesão. Enfim foi para a cama, mas dormiu pouco.</p>
+        <p class="scene">• • •</p>
+        <p>Plínio acordou com o baque surdo do gesso batendo na madeira da cama. Carlos tentava se sentar, sem o apoio dos braços. Plínio levantou-se num salto e foi segurar o irmão.</p>
+        <p>— Não precisa, não tô mais dopado — disse Carlos, seco. — Tô com dor. Pega o remédio lá pra mim.</p>
+        <p>— Onde tá?</p>
+        <p>— Não sei, <em>uai</em>. Procura — respondeu com rispidez.</p>
+        <p>Plínio saiu do quarto e foi até a cozinha. Encontrou a cartela sobre a geladeira: naproxeno, 550 mg. Encheu um copo d'água, retirou um comprimido da cartela e retornou ao quarto.</p>
+        <p>Carlos continuava na mesma posição, olhando para o chão de cimento queimado.</p>
+        <p>Plínio colocou o comprimido na boca do irmão e levou o copo aos seus lábios. Carlos engoliu e se levantou de imediato, caminhando em direção à cozinha.</p>
+        <p>— Vem cá, põe uma xícara de café pra mim.</p>
+        <p>— Tá gelado já, é de ontem.</p>
+        <p>— Não tem problema.</p>
+        <p>Plínio serviu a xícara e a levou à boca do irmão. Carlos tomou dois goles curtos, sem apetite. Plínio largou a louça na mesa e pegou o pacote de pão de forma. Passou manteiga numa fatia, partiu-a em pedaços e ficou de pé ao lado da cadeira, colocando um por vez na boca do irmão. Carlos mastigou devagar, de cabeça baixa.</p>
+        <p>Ambos sabiam o que o outro estava pensando.</p>
+        <p>— Esse café tá muito ruim. Tem suco?</p>
+        <p>Plínio abriu a geladeira e pegou uma jarra de suco de laranja guardada há dois dias. Serviu-o num copo e deu na boca de Carlos.</p>
+        <p>— Tá sem açúcar... E amargo — reclamou, torcendo o canto da boca.</p>
+        <p>— Então não toma! — Plínio levantou a voz com impaciência. — É o que tem.</p>
+        <p>Carlos não rebateu. Olhou para os próprios antebraços engessados.</p>
+        <p>— Dói pra caralho... Que merda — resmungou. — Tô com vontade de mexer as mãos, puta que pariu.</p>
+        <p>— Logo passa.</p>
+        <p>— "Logo passa" nada! Seis semanas, o médico falou. Que merda! — O tom saiu mais desanimado do que irritado. — O Zé Vicente vai trazer a moto hoje?</p>
+        <p>— Ele disse que sim.</p>
+        <p>— E o bezerro?</p>
+        <p>— A gente liga pro veterinário.</p>
+        <p>— Vai lá olhar ele... Os pai ligaram?</p>
+        <p>— Não. Na verdade, esqueci de olhar — respondeu Plínio, apalpando a calça atrás do celular.</p>
+        <p>Carlos permaneceu quieto, com a testa franzida.</p>
+        <p>— A mãe mandou mensagem, só disse "chegamos".</p>
+        <p>— Então responde ela. Não conta nada ainda.</p>
+        <p>Plínio arrastou a cadeira ao lado e sentou-se. O relógio de parede batia os segundos com o tique seco de costume.</p>
+        <p>— Ontem... — começou Carlos, mas interrompeu a fala.</p>
+        <p>Plínio ficou com a faca de ponta redonda suspensa na mão, esperando. Carlos entreabriu os lábios outra vez, hesitou e permaneceu calado.</p>
+        <p>— Ontem o quê? — perguntou Plínio.</p>
+        <p>Carlos baixou a vista para a toalha de plástico da mesa, fixando o reflexo turvo na lateral do bule de alumínio.</p>
+        <p>— Nada — disse Carlos. — Esquece.</p>
+        <p>Plínio não insistiu.</p>
+        <p>Lá fora, o cachorro latiu na baixada.</p>
+        <p>— Esqueci de dar comida pro Batoré — disse Plínio, empurrando a cadeira para trás.</p>
+        <p>— Então vai lá, antes que ele mate alguma galinha.</p>
+        <p>Carlos permaneceu ali com o olhar perdido. Nada foi dito sobre o dia anterior. O dia seguia sem conclusão, a vida apenas continuando naquele casebre onde as paredes pareciam mais sufocantes e menos vazias do que antes.</p>
+    </article>
+  </main>
+  <footer class="colophon">
+      <div class="wrap">
+        <div class="name">Leon Tiff</div>
+        <p class="meta"><a href="https://x.com/LeonTiff_">X: @LeonTiff_</a><span class="sep">·</span><a href="https://onnowplay.com/brothersmg">onnowplay.com/brothersmg</a><span class="sep">·</span><a href="mailto:leontiff@proton.me">leontiff@proton.me</a></p>
+      </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#141110">
+<meta name="author" content="Leon Tiff">
+<meta name="description" content="O colchão no chão era o meu lugar, meu quarto.">
+<title>Espelho — Leon Tiff</title>
+<style>
+    :root{
+      color-scheme: dark;
+      --bg:#141110; --panel:#1c1717;
+      --text:#ece3d4; --muted:#b7a894; --dim:#8f8272;
+      --accent:#c28b5a; --accent-hi:#e0ab77;
+      --line:rgba(236,227,212,.12);
+    }
+    *{ box-sizing:border-box }
+    html{ -webkit-text-size-adjust:100% }
+    body{
+      margin:0;
+      color:var(--text);
+      background-color:var(--bg);
+      background-image:radial-gradient(90rem 50rem at 50% -22rem,#261b1a 0%,rgba(20,17,16,0) 62%);
+      background-repeat:no-repeat;
+      font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua","Times New Roman",serif;
+      font-size:16px;
+      line-height:1.6;
+    }
+    ::selection{ background:rgba(194,139,90,.35) }
+    img{ max-width:100%; height:auto }
+    a{ color:inherit }
+    a:focus-visible{ outline:2px solid var(--accent-hi); outline-offset:3px; border-radius:3px }
+    .wrap{ max-width:62rem; margin:0 auto; padding-left:clamp(1.05rem,4vw,2rem); padding-right:clamp(1.05rem,4vw,2rem) }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0 }
+
+    /* topo das páginas de conto */
+    .topbar{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding-top:1.2rem; padding-bottom:1.05rem; border-bottom:1px solid var(--line) }
+    .topbar a{ color:var(--muted); text-decoration:none; font-size:.98rem; transition:color .2s ease }
+    .topbar a:hover{ color:var(--accent-hi) }
+    .topbar .who{ color:var(--dim); font-size:.78rem; letter-spacing:.3em; text-transform:uppercase; padding-left:.3em }
+
+    /* índice */
+    .masthead{ text-align:center; padding-top:clamp(3rem,8vw,5.2rem); padding-bottom:clamp(1.6rem,4vw,2.6rem) }
+    .masthead h1{ margin:0; font-weight:500; font-size:clamp(2rem,5.6vw,2.9rem); letter-spacing:.22em; text-transform:uppercase; padding-left:.22em; color:#f2e9da }
+    .masthead .tagline{ margin:.95rem 0 0; color:var(--dim); font-size:.72rem; letter-spacing:.6em; text-transform:uppercase; padding-left:.6em }
+    .hairline{ width:4.2rem; height:1px; background:var(--line); margin:1.7rem auto 0 }
+    .grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(1.3rem,3.5vw,2.1rem); padding-top:clamp(.6rem,2vw,1.2rem); padding-bottom:clamp(1rem,4vw,2.5rem) }
+    .card{ flex:1 1 16.5rem; max-width:21.5rem; display:flex; flex-direction:column; background:var(--panel); border:1px solid var(--line); border-radius:.75rem; overflow:hidden; text-decoration:none; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease }
+    .card:hover{ transform:translateY(-4px); border-color:rgba(194,139,90,.5); box-shadow:0 24px 48px -22px rgba(0,0,0,.85) }
+    .card img{ display:block; width:100% }
+    .card .body{ display:flex; flex-direction:column; flex:1; gap:.55rem; padding:1.05rem 1.15rem 1.2rem }
+    .card h2{ margin:0; font-size:1.3rem; font-weight:600; letter-spacing:.02em }
+    .card .teaser{ margin:0; color:var(--muted); font-size:.95rem; line-height:1.62 }
+    .card .cta{ margin-top:auto; padding-top:.35rem; color:var(--accent); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase }
+    .card:hover .cta{ color:var(--accent-hi) }
+
+    /* página do conto */
+    .story{ max-width:43rem; margin:0 auto; padding:clamp(1.9rem,5vw,3.1rem) clamp(1.05rem,4vw,2rem) 0 }
+    .cover{ margin:0 auto clamp(2.2rem,5.5vw,3.1rem); width:min(20.5rem,72vw) }
+    .cover img{ display:block; width:100%; border-radius:.55rem; border:1px solid var(--line); box-shadow:0 34px 64px -30px rgba(0,0,0,.9) }
+    article p{ margin:0 0 1.08em; font-size:clamp(1.04rem,.99rem + .3vw,1.16rem); line-height:1.85; text-align:justify; text-justify:inter-word; hyphens:none }
+    article p.scene{ text-align:center; color:var(--dim); letter-spacing:.62em; text-indent:.62em; margin:2em 0 1.85em; font-size:.95em }
+    @media (max-width:560px){ article p{ text-align:left } }
+
+    /* colofão */
+    .colophon{ margin-top:clamp(2.8rem,7vw,4.6rem); border-top:1px solid var(--line); color:var(--muted); font-size:.93rem }
+    .colophon .wrap{ padding-top:1.7rem; padding-bottom:2.3rem; text-align:center; line-height:2 }
+    .colophon .name{ color:var(--dim); font-size:.76rem; letter-spacing:.34em; text-transform:uppercase; padding-left:.34em; margin-bottom:.4rem }
+    .colophon a{ text-decoration:none; border-bottom:1px solid transparent; transition:color .2s ease,border-color .2s ease }
+    .colophon a:hover{ color:var(--accent-hi); border-bottom-color:var(--accent-hi) }
+    .colophon .meta{ margin:.15rem 0 0; display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:.15em .6em }
+    .colophon .sep{ color:var(--dim) }
+    @media (max-width:560px){ .colophon .meta{ flex-direction:column; gap:.05em; align-items:center } .colophon .sep{ display:none } }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <header class="topbar">
+      <a href="index.html">← contos</a>
+      <span class="who">Leon Tiff</span>
+    </header>
+  </div>
+  <main class="story">
+    <figure class="cover">
+      <img src="espelho_onnow.jpg" alt="Capa do conto Espelho — Leon Tiff" width="601" height="750">
+    </figure>
+    <h1 class="sr-only">Espelho</h1>
+    <article>
+        <p>O colchão no chão era o meu lugar, meu quarto. Sendo o mais novo dos oito filhos numa casa pobre, não sobrou lugar pra mim.</p>
+        <p>Eu dormia de lado, virado pra parede, mas meus olhos nunca fechavam cedo. A luz do abajur que minha mãe insistia em deixar acesa projetava sombras no quarto, e era ali, na penumbra alaranjada, que eu assistia tudo. O ranger da cama de casal começava manso, o estalar do estrado denunciava o movimento. Meu pai não era homem de preliminares demoradas. Ele cobria o corpo da minha mãe com o dele — aquele corpo grande, moreno, peludo — e começava a bombar.</p>
+        <p>Eu ouvia a respiração deles ficar mais funda, enquanto tentavam conter os gemidos. Minha mãe soltava alguns gemidinhos contidos, daqueles que a pessoa tenta abafar no travesseiro pra não acordar ninguém, mas que, quando o tesão aumentava, nem se preocupava muito. Minha piroquinha ficava dura que nem pedra. Eu não me mexia. Só ficava ali, respirando baixinho, vidrado na silhueta trêmula que a luz fraca do abajur projetava na parede: o vulto do meu pai subindo e descendo, subindo e descendo. Eu devia ter uns sete anos na primeira vez que reparei nisso e, a partir daí, toda noite era a mesma coisa.</p>
+        <p>Logo eu já estava mais esperto, deixando de acreditar nas conversas de adulto. Minha irmã mais velha, a Cida, casou cedo e foi morar na casa ao lado. Valdir, seu marido, trabalhava viajando e às vezes ficava semanas fora. A Cida começou a ter problemas na casa — um cano que estourava, uma telha quebrada, a descarga que não funcionava. "Depois vou chamar o pai pra dar uma olhada", ela dizia pra minha mãe. E ela chamava, chamava sempre enquanto minha mãe estava no trabalho.</p>
+        <p>Um dia, depois de muita coisa estragar na casa dela, ela chamou meu pai mais uma vez. Eles saíram, e eu vi eles atravessarem o terreiro e entrar na casa dela. Esperei uns dois minutos, o suficiente pra ele não me ver, e fui atrás. Agachei debaixo da janela da cozinha. A janela estava com a persiana velha quebrada, e dava pra ouvir tudo. Primeiro uns cochichos, uma risadinha abafada da Cida. Depois o barulho inconfundível de roupa sendo tirada, de cochichos avulsos em meio ao silêncio repentino, do baque seco de um corpo se encostando na parede... E aí a voz grossa do meu pai veio bem baixinha: "Vem, chupa."</p>
+        <p>Arregalei os olhos e me concentrei ainda mais nos sons: o vai e vem melado, os gemidos contidos da minha irmã, os grunhidos do meu pai. Fiquei assustado, incrédulo, mas com o pau bem duro. Quando notei que a respiração dele ficou pesada — como quando ele gozava na minha mãe —, voltei ligeiro pra casa.</p>
+        <p>Repeti isso várias vezes. Bati tanta punheta nos meses seguintes que perdi a conta, imaginando a cena do que eu não podia ver. Imaginando minha irmã arreganhada enquanto meu pai socava nela, sem se importar que era sua filha. Eu olhava pra Cida e só conseguia ouvir os gemidos dela na minha cabeça, imaginando ela de quatro pro nosso pai, revirando os olhos enquanto levava pica.</p>
+        <p>Não demorou muito pra eu entender que o buraco era mais embaixo. Muita coisa acontecia. E foi nos fundos do quintal de casa que eu vi o Tino, o açougueiro, ajoelhado. Meu pai encostado no muro, a calça jeans arriada nos joelhos, uma mão apoiada na cabeça careca do Tino. E o Tino mamava. Não tô falando de chupeta de bebê, não. Era uma mamada de verdade, com fome, daquelas que o pau some e volta todo babado por causa da ânsia de vômito. Meu pai segurava a base do pau com uma mão e enfiava na boca do Tino com força, fazendo ele engasgar. A boca do Tino era grande, mas o pau do meu pai era maior.</p>
+        <p>Eu tava agachado atrás de umas madeiras velhas, a mão já dentro do short. Me imaginei ali ajoelhado ao lado do Tino, revezando. Às vezes os dois mamavam ao mesmo tempo, uma lambida aqui, outra ali. Depois o Tino me chupava enquanto meu pai comia minha boca. Eu fantasiava muitas possibilidades, e isso me deixava retardado de tanto tesão.</p>
+        <p>Aí o Tino abriu o olho. Me viu. Deu um pulo pra trás, quase caiu sentado, limpando a boca com as costas da mão. Meu pai levou um segundo a mais pra processar, com o pau ainda duro pra fora. Ele me encarou com uma fúria que eu nunca tinha visto, a testa enrugada, o olho esbugalhado.</p>
+        <p>— Seu moleque filho da puta! — gritou, subindo a calça num tranco.</p>
+        <p>Corri para o quarto dos fundos, como se isso fosse me livrar da bronca.</p>
+        <p>— Gilvan! — Me gritou, furioso. Entrou no quarto e parou na minha frente, apontando o dedo na minha cara. — Se eu souber que tu abriu esse bico pra alguém, vou te encher de porrada até tu mijar sangue. Entendeu? Nem pra tua mãe, nem pros teus irmãos, nem pro caralho de ninguém. Entendeu?</p>
+        <p>Apenas balancei repetidamente a cabeça em concordância, tentando segurar o choro.</p>
+        <p>Ele deu as costas, enquanto o Tino escapava rapidinho pelo portão dos fundos.</p>
+        <p>Hoje entendo que ele não reagiu por raiva, mas por medo. Nunca contei a ninguém, mas bati punheta pensando naquilo por anos. Imaginava o gosto que o Tino estava sentindo, como deveria ser a textura, o pau grande do meu pai causando ânsia ao bater no fundo da garganta. Às vezes me imaginava fazendo com ele o que vi o Tino fazer.</p>
+        <p>Depois disso, fui crescendo e aprendendo meu lugar no mundo. Meus pais e meus irmãos foram seguindo a vida deles, e eu fui entendendo que a herança que aquele velho me deixou não era casa, dinheiro ou sobrenome. Era uma piroca grande e uma safadeza que não tinha fim. O tempo foi passando, fui ficando mais velho e cada vez mais parecido com ele. Aprendi cedo a ler as pessoas, a sentir no ar quando alguém tá a fim, quando a safadeza tá escondida atrás de um sorriso educado ou de uma conversa fiada.</p>
+        <p>Hoje eu olho em volta e vejo o tanto de gente que me procura. Não me acho grande coisa. Tenho uma barriga saliente, os dentes meio tortos e, apesar de eu não ser feio, tô longe de ser bonito. Mas isso nunca me preocupou. O que importa é que eu sei dar o que as pessoas gostam, e tem um monte de vagabunda e de viadinho atrás de mim. E eu retribuo, retribuo do meu jeito. Sempre tem um viadinho querendo mamar, não importa a hora ou o lugar. E eu sempre tô. Retribuo o carinho de cada um deles, fodo gostoso, dou o leite que eles querem e todo mundo sai feliz.</p>
+        <p>Aprendi uma coisa — que começou com a história do Tino — que pra mim é lei: viado é muito melhor que mulher. "Você gosta mais de mulher ou de viado?", me perguntaram outro dia no bar. Nem precisei pensar, e — diferente do meu pai — não escondo de ninguém. O viadinho chega, já vai direto no pau, arranca o leite sem frescura. Ele gosta de rola de verdade. Sabe chupar um saco, sabe mamar uma piroca, sabe engolir toda a porra jogada bem na garganta. Sabe dar com vontade, rebolar em cima, gemer de verdade. E não exige nada além disso. É pica, leite e tchau. Cada um pro seu lado até bater o tesão de novo. Isso é ser homem, e homens se entendem.</p>
+        <p>A mulher não. A mulher quer jantar, quer andar de carro, quer presente, quer se sentir única e especial. E eu não tenho nada disso pra oferecer. Meu capital é meu tesão e meu pau, só isso. Gosto de foder, e fodo pra caralho; modéstia à parte.</p>
+        <p>Penso no meu pai. Ele morreu de infarto quando eu tinha dezesseis anos. Caiu duro no meio da rua quando voltava da padaria. Lamento ele ter ido antes de ver, agora com trinta e nove, o puto que me tornei. Queria muito estar com ele dividindo os viados que pego. Até hoje me pego imaginando: eu comendo um enquanto ele come outro, os dois viadinhos de quatro na cama, gemendo, pedindo rola. Os dois mamando a gente, revezando. Ele e eu trocando olhares cúmplices, falando putaria um pro outro. Imagino o quanto eu poderia, quem sabe, estar aliviando o tesão dele com uma mamada enquanto ele ouvia o rádio no quintal.</p>
+        <p>Ele teria orgulho. O coroa fodia quem queria, sem culpa, sem peso na consciência. E eu saí igualzinho. A mesma fome, a mesma falta de frescura. Queria só ter tido a chance de mostrar tudo isso a ele e dizer: "Obrigado, meu velho."</p>
+    </article>
+  </main>
+  <footer class="colophon">
+      <div class="wrap">
+        <div class="name">Leon Tiff</div>
+        <p class="meta"><a href="https://x.com/LeonTiff_">X: @LeonTiff_</a><span class="sep">·</span><a href="https://onnowplay.com/brothersmg">onnowplay.com/brothersmg</a><span class="sep">·</span><a href="mailto:leontiff@proton.me">leontiff@proton.me</a></p>
+      </div>
+    </footer>
+</body>
+</html>

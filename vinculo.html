@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#141110">
+<meta name="author" content="Leon Tiff">
+<meta name="description" content="O dia da viagem chegou, para a infelicidade de Caio.">
+<title>Vínculo — Leon Tiff</title>
+<style>
+    :root{
+      color-scheme: dark;
+      --bg:#141110; --panel:#1c1717;
+      --text:#ece3d4; --muted:#b7a894; --dim:#8f8272;
+      --accent:#c28b5a; --accent-hi:#e0ab77;
+      --line:rgba(236,227,212,.12);
+    }
+    *{ box-sizing:border-box }
+    html{ -webkit-text-size-adjust:100% }
+    body{
+      margin:0;
+      color:var(--text);
+      background-color:var(--bg);
+      background-image:radial-gradient(90rem 50rem at 50% -22rem,#261b1a 0%,rgba(20,17,16,0) 62%);
+      background-repeat:no-repeat;
+      font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua","Times New Roman",serif;
+      font-size:16px;
+      line-height:1.6;
+    }
+    ::selection{ background:rgba(194,139,90,.35) }
+    img{ max-width:100%; height:auto }
+    a{ color:inherit }
+    a:focus-visible{ outline:2px solid var(--accent-hi); outline-offset:3px; border-radius:3px }
+    .wrap{ max-width:62rem; margin:0 auto; padding-left:clamp(1.05rem,4vw,2rem); padding-right:clamp(1.05rem,4vw,2rem) }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0 }
+
+    /* topo das páginas de conto */
+    .topbar{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding-top:1.2rem; padding-bottom:1.05rem; border-bottom:1px solid var(--line) }
+    .topbar a{ color:var(--muted); text-decoration:none; font-size:.98rem; transition:color .2s ease }
+    .topbar a:hover{ color:var(--accent-hi) }
+    .topbar .who{ color:var(--dim); font-size:.78rem; letter-spacing:.3em; text-transform:uppercase; padding-left:.3em }
+
+    /* índice */
+    .masthead{ text-align:center; padding-top:clamp(3rem,8vw,5.2rem); padding-bottom:clamp(1.6rem,4vw,2.6rem) }
+    .masthead h1{ margin:0; font-weight:500; font-size:clamp(2rem,5.6vw,2.9rem); letter-spacing:.22em; text-transform:uppercase; padding-left:.22em; color:#f2e9da }
+    .masthead .tagline{ margin:.95rem 0 0; color:var(--dim); font-size:.72rem; letter-spacing:.6em; text-transform:uppercase; padding-left:.6em }
+    .hairline{ width:4.2rem; height:1px; background:var(--line); margin:1.7rem auto 0 }
+    .grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(1.3rem,3.5vw,2.1rem); padding-top:clamp(.6rem,2vw,1.2rem); padding-bottom:clamp(1rem,4vw,2.5rem) }
+    .card{ flex:1 1 16.5rem; max-width:21.5rem; display:flex; flex-direction:column; background:var(--panel); border:1px solid var(--line); border-radius:.75rem; overflow:hidden; text-decoration:none; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease }
+    .card:hover{ transform:translateY(-4px); border-color:rgba(194,139,90,.5); box-shadow:0 24px 48px -22px rgba(0,0,0,.85) }
+    .card img{ display:block; width:100% }
+    .card .body{ display:flex; flex-direction:column; flex:1; gap:.55rem; padding:1.05rem 1.15rem 1.2rem }
+    .card h2{ margin:0; font-size:1.3rem; font-weight:600; letter-spacing:.02em }
+    .card .teaser{ margin:0; color:var(--muted); font-size:.95rem; line-height:1.62 }
+    .card .cta{ margin-top:auto; padding-top:.35rem; color:var(--accent); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase }
+    .card:hover .cta{ color:var(--accent-hi) }
+
+    /* página do conto */
+    .story{ max-width:43rem; margin:0 auto; padding:clamp(1.9rem,5vw,3.1rem) clamp(1.05rem,4vw,2rem) 0 }
+    .cover{ margin:0 auto clamp(2.2rem,5.5vw,3.1rem); width:min(20.5rem,72vw) }
+    .cover img{ display:block; width:100%; border-radius:.55rem; border:1px solid var(--line); box-shadow:0 34px 64px -30px rgba(0,0,0,.9) }
+    article p{ margin:0 0 1.08em; font-size:clamp(1.04rem,.99rem + .3vw,1.16rem); line-height:1.85; text-align:justify; text-justify:inter-word; hyphens:none }
+    article p.scene{ text-align:center; color:var(--dim); letter-spacing:.62em; text-indent:.62em; margin:2em 0 1.85em; font-size:.95em }
+    @media (max-width:560px){ article p{ text-align:left } }
+
+    /* colofão */
+    .colophon{ margin-top:clamp(2.8rem,7vw,4.6rem); border-top:1px solid var(--line); color:var(--muted); font-size:.93rem }
+    .colophon .wrap{ padding-top:1.7rem; padding-bottom:2.3rem; text-align:center; line-height:2 }
+    .colophon .name{ color:var(--dim); font-size:.76rem; letter-spacing:.34em; text-transform:uppercase; padding-left:.34em; margin-bottom:.4rem }
+    .colophon a{ text-decoration:none; border-bottom:1px solid transparent; transition:color .2s ease,border-color .2s ease }
+    .colophon a:hover{ color:var(--accent-hi); border-bottom-color:var(--accent-hi) }
+    .colophon .meta{ margin:.15rem 0 0; display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:.15em .6em }
+    .colophon .sep{ color:var(--dim) }
+    @media (max-width:560px){ .colophon .meta{ flex-direction:column; gap:.05em; align-items:center } .colophon .sep{ display:none } }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <header class="topbar">
+      <a href="index.html">← contos</a>
+      <span class="who">Leon Tiff</span>
+    </header>
+  </div>
+  <main class="story">
+    <figure class="cover">
+      <img src="vinculo_onnow.png" alt="Capa do conto Vínculo — Leon Tiff" width="600" height="750">
+    </figure>
+    <h1 class="sr-only">Vínculo</h1>
+    <article>
+        <p>O dia da viagem chegou, para a infelicidade de Caio. Passou semanas resmungando com a mãe. Fazia quase um ano que não via o pai, e visitá-lo já era uma obrigação.</p>
+        <p>Agora, aos dezenove anos, já não havia mais proximidade emocional com o pai. A relação com Márcio não passava de mera formalidade. Viveram na mesma casa até os seus onze anos, antes que o divórcio mandasse o pai de volta para a cidade natal. A vida parecia nos trilhos até uma história mal resolvida de traição destruir o casamento, história essa que Caio nunca compreendeu muito bem. A mãe ainda guardava alguma mágoa, mas fazia questão de exigir que o filho mantivesse o contato, mesmo que esporádico.</p>
+        <p>Márcio tentava puxar conversa por mensagem, mas Caio respondia com o mínimo de palavras. O papo morria rápido. A figura do pai virou uma convenção burocrática, um título sem qualquer peso emocional. A distância só aumentou conforme Caio crescia, se intensificando ainda mais quando ele assumiu a homossexualidade. Mas não foi Márcio quem se afastou — ele aceitou bem a notícia, melhor que a mãe — e sim o próprio Caio, sem que ele mesmo soubesse o porquê.</p>
+        <p>Caio tinha uma presença física marcante e rosto jovial que chamava atenção sem esforço. Apesar disso, se esquivava de interações sociais. Nenhuma transa tinha chegado perto do tesão que acumulava trancado no quarto, mas as punhetas banais do dia a dia já não bastavam; gostava da sujeira do escuro, do exótico, de enfiar o cabo das escovas e frascos de desodorante no cu até se gozar todo.</p>
+        <p class="scene">• • •</p>
+        <p>Acordou emburrado na manhã seguinte. Engoliu o café sem pressa, despediu-se da mãe e foi para a rodoviária. Tinha cinco horas de estrada pela frente, com três baldeações — tempo que pretendia passar cochilando e se masturbando no fundo dos ônibus, torcendo para que eles estivessem vazios. Era a única coisa que realmente o empolgava naquele trajeto.</p>
+        <p>Os primeiros ônibus estavam lotados. No terceiro conseguiu se aliviar.</p>
+        <p>Ao chegar, desceu e deu de cara com o pai. Márcio esboçou um sorriso contido, sabendo que o garoto só estava ali por pressão da ex-mulher. Caio soltou um aceno morno, sem saber direito o que falar.</p>
+        <p>— Oi, pai.</p>
+        <p>— E aí, filho! Como você tá?</p>
+        <p>No caminho a pé até a casa, Márcio tentava puxar assuntos triviais, mas as respostas vinham curtas. A conversa morria a cada poucos passos, engolida por um silêncio travado. Márcio parecia ter perdido o jeito de lidar com o filho, embora tentasse, sem sucesso.</p>
+        <p>Ao chegarem, Caio foi direto para o quarto. Enrolou para tirar as roupas da mochila, adiando ao máximo o momento de ir para a sala. Na sala, Márcio tirou as botas e a camisa, largando tudo no chão. Tinha acabado o expediente na empresa de carga pouco antes de ir buscar o filho. Foi até o batente do quarto:</p>
+        <p>— Filho, tá com fome? Vou preparar algo pra comer.</p>
+        <p>— Não, pai, valeu. Comi uns salgados no caminho, tô cheio ainda.</p>
+        <p>— Tá bom. Vou fazer uns sanduíches e deixar na cozinha. Se der fome, pega lá. Tem umas coisas na geladeira também.</p>
+        <p>— Beleza.</p>
+        <p>— Vamos lá pra sala pra gente conversar um pouco.</p>
+        <p>— Tá, só vou terminar de guardar as coisas.</p>
+        <p>Márcio demorou cerca de dez minutos na cozinha. Fritou ovos, montou dois pães com fatias de queijo e levou o prato para a sala. Caio já estava sentado no sofá, os olhos fixos na tela do celular.</p>
+        <p>— Não quer mesmo, filho? — perguntou Márcio, estendendo o prato com os lanches.</p>
+        <p>— Não, pai, valeu. Depois eu como.</p>
+        <p>Márcio se largou no sofá. Apoiou um dos pés descalços no estofado, abriu as pernas, relaxou o corpo cansado e começou a devorar um dos pães. Caio olhou de soslaio para os pés e as pernas peludas do pai antes de voltar a atenção para o celular. Márcio não parecia empolgado em engrenar conversa naquele momento; mastigava encarando a TV, sem prestar atenção no que passava.</p>
+        <p>Aos quarenta e três anos, o pai ostentava a estrutura pesada de quem passou a vida no trabalho braçal. Tinha um metro e oitenta e cinco, os braços grossos, tomados por veias salientes do antebraço aos ombros. Pelos escuros cobriam o peitoral e desciam pelo abdômen até sumir no cós da calça. Nada ali lembrava corpo trabalhado em academia: era o formato bruto construído ao acordar às quatro da manhã para guiar caminhão, descarregar peso e repetir o ciclo de segunda a sábado. Na juventude, Márcio se parecia muito com Caio, esticado e magro, mas os anos de estrada adensaram sua carcaça.</p>
+        <p>— E aí, filho, como estão as coisas por lá?</p>
+        <p>— Tá tudo bem. — Caio não sabia o que dizer.</p>
+        <p>— E sobre a faculdade, já decidiu o curso?</p>
+        <p>— Ainda não, tô meio com preguiça de pensar em faculdade agora. Vou pensar com mais calma antes de decidir alguma coisa.</p>
+        <p>— Tá certo, melhor saber o que quer primeiro, senão acaba se arrependendo. Você é inteligente, vai se dar bem demais no que escolher, tenho certeza.</p>
+        <p>— Tomara.</p>
+        <p>— Vai sim. Só não deixa de estudar pra não acabar igual eu tendo que me foder todo dia pra ganhar uma merda de salário. Se eu tivesse tido a oportunidade teria aproveitado. Vontade eu tinha.</p>
+        <p>— É verdade.</p>
+        <p>O silêncio voltou a tomar conta. Depois de devorar os dois sanduíches, Márcio se espalhou ainda mais pelo sofá. Ficou ali por alguns minutos, alternando perguntas curtas com encaradas distraídas para a TV. Levantou-se sem pressa, arrastando os pés rumo ao banheiro. As botas e a camisa continuaram no mesmo lugar, largadas no chão.</p>
+        <p>Sozinho, Caio alternava entre deslizar pelo Instagram e conferir as mídias pendentes nos grupos pornôs do Telegram. O tédio abria espaço para um tesão sutil. Decidiu ir para o quarto para assistir alguns vídeos, mas travou ao reparar nas roupas do pai deixadas pelo caminho.</p>
+        <p>De repente, um impulso rápido surgiu, sem reflexão ou filtro. Abaixou-se, apanhou a camisa usada e a aproximou do rosto. Pressionou o pano contra o nariz, na altura das axilas. O cheiro do suor em si não o excitava, mas a transgressão do ato sim: a quebra de regra, o ato velado de cheirar a roupa suja do próprio pai sem que ele pudesse imaginar. Soltou o tecido no piso exatamente na mesma posição.</p>
+        <p>Olhou para as botas e apanhou uma. Pressionou o rosto no cano de couro e inspirou fundo. Sentiu o cheiro do chulé azedo do pai, acumulado após horas com os pés abafados. Sentiu o pau endurecendo sob a bermuda. Inspirou mais algumas vezes. O caráter proibido da cena deixava tudo mais intenso.</p>
+        <p>Sem cueca, o pau duro esticava a bermuda. Largou o calçado no mesmo canto e foi para o quarto. A excitação não baixou de imediato; ficou remoendo por minutos sem que ele conseguisse controlá-la. Fechou a porta, deitou na cama e tirou o pau para fora. Se masturbou devagar por alguns minutos, mas interrompeu antes de gozar. Esperou o pau amolecer, foi à cozinha beber um copo d'água e retornou.</p>
+        <p>Márcio demorou no banho. Saiu apenas de toalha na cintura para se trocar no quarto. De cueca samba-canção, foi ao quarto de Caio.</p>
+        <p>— Caio, não vai tomar banho não? Deixei uma toalha lá pra você.</p>
+        <p>— Ah tá... Eu trouxe, mas valeu. Logo tô indo também. Eu durmo tarde. Às vezes demoro a ir pro banho. — Sorriu sem graça, desviando o olhar.</p>
+        <p>— Sei. Já sei o que você fica fazendo no banho de madrugada — zombou Márcio, soltando um riso debochado.</p>
+        <p>— Haha... Não...</p>
+        <p>— Tô brincando. Vou lá pra sala. Se quiser sentar lá...</p>
+        <p>— Vou ficar um pouco deitado aqui, tô cansado da viagem.</p>
+        <p>— Tudo bem.</p>
+        <p>O restante da noite seguiu no mesmo ritmo travado. Perto das onze, Márcio já bocejava, exausto. Voltou ao quarto. Caio permanecia na mesma posição de antes.</p>
+        <p>— Filho, tenho que ir dormir porque amanhã é cedo. Boa noite. Se quiser comer ou ligar a TV você já sabe.</p>
+        <p>— Tá bom, pai, não vou demorar muito também. Boa noite.</p>
+        <p>"Que cara chato, só sabe falar as mesmas coisas", Caio pensou. Continuou ali mais alguns minutos até decidir ir para o banho. Passando pela sala, procurou com os olhos as botas do pai, mas elas não estavam mais ali.</p>
+        <p>Ao avançar pelo corredor, um som abafado vindo do quarto do pai o fez interromper os passos. Caminhou em silêncio até a porta e aproximou a orelha. O ruído ritmado e contínuo não deixava dúvidas: Márcio estava se masturbando.</p>
+        <p>O pau ficou duro rapidamente. Enfiou a mão por dentro da bermuda e começou a se tocar lentamente, cauteloso para não fazer nenhum barulho. O som da punheta do pai do outro lado o enchia de tesão. Controlava a respiração para não denunciar sua presença ali.</p>
+        <p>Movido pela curiosidade, abaixou-se até a altura da fechadura antiga. O orifício largo da chave estava desimpedido, mas o ângulo não alcançava a cama. A luz estava acesa, mas ele não via o pai.</p>
+        <p>Tirou a mão de dentro da bermuda e aproximou mais o olho esquerdo até encostar a testa na porta. Foi então que o trinco gasto cedeu com um estalo e a porta se abriu o suficiente para que tudo fosse visto.</p>
+        <p>Márcio estava sentado numa poltrona ao lado da cama, com a samba-canção arriada nas coxas e o pau duro na mão. No susto, fez um movimento reflexo para subir o tecido, mas travou no meio e continuou do jeito que estava. Caio se ergueu num sobressalto, se virou apressadamente e saiu sem dizer nada, mas o pai já tinha flagrado a cena.</p>
+        <p>— Caio! Vem cá — chamou em voz alta.</p>
+        <p>— Desculpa, pai... Eu... É que... — A voz saiu trêmula do corredor.</p>
+        <p>— Vem aqui! — Agora ainda mais incisivo.</p>
+        <p>Caio retornou. A vergonha era tanta que beirava o pavor. O pau, meia-bomba, amolecia, mas ainda era volumoso o bastante para ser notado. Márcio reparou imediatamente no volume marcado na bermuda do filho.</p>
+        <p>— Chega aqui — disse.</p>
+        <p>Caio entrou dando passos curtos, mantendo o olhar no chão.</p>
+        <p>— Senta aqui. Fica tranquilo. — Márcio deu dois tapinhas na cama ao lado da poltrona.</p>
+        <p>O garoto obedeceu, sem conseguir encará-lo.</p>
+        <p>— Posso ter uma conversa com você?! — A pergunta veio sem esperar uma resposta. — Eu vi. Percebi que você tava tentando me ver batendo uma. E percebi que você tava gostando. Percebi que tava de pau duro.</p>
+        <p>Soltou um riso curto na tentativa de quebrar o clima pesado e prosseguiu:</p>
+        <p>— Caio, vou mandar a real. A gente precisa conversar. Já faz muitos anos que eu tento me aproximar de você e isso nunca acontece. E por mais que eu ainda tente, eu sei que isso não vai acontecer. A gente não tem ligação de pai e filho, nem você e nem eu. Principalmente você. Fazer o que, né?! Nem tudo é como a gente pensa que deveria ser, ou como eu gostaria que fosse. É assim que é nossa relação e é besteira a gente ficar dando murro em ponta de faca. É frustrante pra mim e é chato pra você. Desde que você saiu do ônibus tá estampado na sua cara que você detesta estar comigo.</p>
+        <p>Caio permaneceu imóvel. Ensaiou dizer algo, mas não conseguiu.</p>
+        <p>— Não precisa me justificar nada, não quero que fique mais constrangido do que já tá. Relaxa! — Avançou o tronco e deu três tapinhas na coxa de Caio. — Deixa eu perguntar uma coisa; pode falar a verdade, beleza? Você... Você tá a fim de curtir um pouco?</p>
+        <p>— Que? — respondeu ainda de cabeça baixa, tentando processar a pergunta.</p>
+        <p>— Você tava curtindo. Quer continuar? Se não quiser, não tocamos mais nesse assunto, beleza?</p>
+        <p>Caio finalmente ergueu a cabeça. Olhou confuso para o rosto do pai.</p>
+        <p>— Tá falando sério?</p>
+        <p>— Sim.</p>
+        <p>Ficaram em silêncio por alguns segundos. O pai o encarava fixamente, aguardando a resposta.</p>
+        <p>— Quero.</p>
+        <p>Márcio não disse nada. Enfiou o polegar sob o elástico da samba-canção e a puxou para baixo, apenas o suficiente para revelar o pau mole.</p>
+        <p>— Pega aqui. — Fez um aceno com a cabeça, olhando para o próprio pau.</p>
+        <p>Caio não ofereceu resistência. Levou a mão, segurou e sentiu a carne esquentar contra a palma. Márcio abriu mais as pernas enquanto o pau crescia na mão do filho.</p>
+        <p>— Fica tranquilo — disse Márcio. — Vamos divertir um pouco. A gente nunca se diverte juntos. Só vamos aproveitar e esquece qualquer coisa, beleza?</p>
+        <p>Caio concordou com a cabeça, sem dizer uma palavra. Sentiu o corpo relaxando, a tensão dos minutos atrás se dissolvendo. A exposição do flagra perdeu o tom de ameaça e virou cúmplice, abrindo caminho para o tesão. Soltou um sorriso tímido e começou a punhetar o pai com movimentos lentos.</p>
+        <p>Era grosso, pesado, talvez uns dezessete centímetros, cercado por pelos grossos e escuros sobre um saco volumoso que pendia sobre o assento.</p>
+        <p>Márcio encostou o tronco na poltrona, livrou-se da cueca de vez, colocou a mão sobre a de Caio.</p>
+        <p>— Vem cá, agacha aqui. Mama um pouco — disse abrindo ainda mais as pernas.</p>
+        <p>"Caralho, não é possível que isso tá acontecendo", Caio não pôde evitar pensar. Levantou do colchão e ajoelhou-se entre as pernas do pai. Segurou a base da rola, que começava a babar. Levou-a à boca. Começou chupando a cabeça, sentindo o líquido deslizar. Afundou mais o pau, até senti-lo na garganta. Com as mãos livres, arriou a bermuda.</p>
+        <p>Márcio ofegava. Segurou a cabeça do garoto com as duas mãos, travando o pescoço e ditando o ritmo, socando a rola até o fundo da garganta. Caio engasgava, e o pai aliviava a pressão por alguns segundos, até retomar o movimento. Soltou a cabeça de Caio e deu a ordem:</p>
+        <p>— Deita aí na cama.</p>
+        <p>Caio levantou sem questionar. Aproveitou para se livrar de vez da bermuda. O olhar do pai recaiu sobre o pau duro do rapaz.</p>
+        <p>— Puta que pariu, esse bichão cresceu, hein?! — Levou a mão e segurou. — Puxou pra mim.</p>
+        <p>O pau de Caio era quase idêntico ao do pai: grosso na mesma espessura da base à ponta, pele mais escura que o resto do corpo, cabeça brilhante e rosada, curvado rígido para cima.</p>
+        <p>— Deita de costas — ordenou Márcio, soltando o pau da mão. — De boa eu dar uma mamada também?</p>
+        <p>— Sim — respondeu, sentindo o pau latejar com a pergunta.</p>
+        <p>— Você curte o que?</p>
+        <p>— Sou versátil.</p>
+        <p>— Aí sim!</p>
+        <p>Caio se deitou, e Márcio subiu na cama, assumindo posição invertida sobre o filho.</p>
+        <p>— Chupa meu cu enquanto te mamo — disse, abaixando a cabeça em direção ao pau do garoto.</p>
+        <p>— Espera! — Caio interrompeu.</p>
+        <p>— Que foi?</p>
+        <p>— Eu tô sujo, nem tomei banho ainda — disse, soltando uma risadinha tímida.</p>
+        <p>Márcio retribuiu com um riso debochado:</p>
+        <p>— E eu tô aí com isso? Deixa eu ver se essa piroca tá suja mesmo.</p>
+        <p>Puxou a pele do pau para baixo, deixando a cabeça bem exposta. Aproximou o nariz e inspirou fundo.</p>
+        <p>— Que tesão, porra! Isso é cheiro de macho, moleque! — Cheirou mais uma vez, antes de cair de boca.</p>
+        <p>Caio ficou surpreso. Ali, naquele momento que parecia surreal, estavam descobrindo semelhanças que uma vida inteira não havia revelado. "Caralho, ele é pervertido igual eu, puta que pariu...", pensou enquanto olhava o cu peludo do pai bem à sua frente.</p>
+        <p>Caio se aproximou e começou a chupá-lo, e Márcio imediatamente ergueu mais o quadril.</p>
+        <p>Permaneceram ali por um tempo, conectados, chupando um ao outro ao som dos gemidos baixos e das respirações ofegantes.</p>
+        <p>— Porra, que tesão! — Márcio disse, tirando o pau da boca e saindo da posição. — Fica de quatro pra mim.</p>
+        <p>Caio se posicionou, erguendo a bunda para o pai.</p>
+        <p>Márcio cuspiu nos dedos e levou a ponta até o cu de Caio. Massageou devagar.</p>
+        <p>— Cuzinho macio. Já tá acostumado a dar esse cu, né?! Safado.</p>
+        <p>Caio não respondeu.</p>
+        <p>— Relaxa esse cu. Quero enfiar a língua dentro.</p>
+        <p>Márcio abriu a bunda do garoto com as duas mãos, levou a boca e começou a lamber as bordas do cu com firmeza antes de empurrar a ponta rígida da língua, forçando a entrada. Caio contraiu a musculatura involuntariamente, relaxando logo em seguida. A língua foi entrando sem muita dificuldade. Márcio soltou um gemido abafado, o ar quente saindo do nariz e batendo direto na pele do garoto.</p>
+        <p>Satisfeito, desfez a posição:</p>
+        <p>— Fica de bruços.</p>
+        <p>Pesou o corpo sobre as costas de Caio, aproximou a boca de sua orelha e sussurrou:</p>
+        <p>— Tá louco pra sentir meu pau dentro de você, né? Fala pra mim. — O pau já roçando a entrada.</p>
+        <p>— Tô, muito. — A voz saiu com dificuldade.</p>
+        <p>— Tá? Fala pra mim o que você quer — insistiu Márcio.</p>
+        <p>— Me come. Me come, mete em mim.</p>
+        <p>Márcio esfregou o pau na fenda da bunda, ergueu levemente o quadril, alinhou a cabeça do pau na entrada e empurrou firme. A baba que escorria foi suficiente para que o pau deslizasse para dentro.</p>
+        <p>Caio soltou um gemido agudo contra o travesseiro.</p>
+        <p>Márcio travou os pés nos tornozelos do garoto, abrindo mais as pernas dele, e começou a meter. Caio agarrava os lençóis a cada tranco do quadril do pai em sua bunda.</p>
+        <p>— Caralho, que tesão! Tá gostosa a pica do pai, tá?</p>
+        <p>— Tá uma delícia. Não para! Fode mais forte.</p>
+        <p>O pedido fez Márcio socar com mais força, cravando a rola até a base. Caio agora gemia alto, soltando o arfar curto a cada enterrada.</p>
+        <p>— Eu quero gozar, caralho. Goza comigo. — Márcio segurou o quadril de Caio, colocando-o de quatro novamente. Levou a mão ao pau do garoto e continuou metendo forte enquanto o punhetava. — Goza vai, goza porra! Goza!</p>
+        <p>— Eu vou gozar! — Caio anunciou em êxtase.</p>
+        <p>O gozo veio, e o corpo de Caio se contorceu enquanto o pai o segurava com firmeza. Márcio começou a gozar logo em seguida, gemendo alto com o pau pulsando e jorrando dentro do filho.</p>
+        <p>Márcio permaneceu com o pau dentro por mais alguns segundos, sentindo o corpo relaxar. Retirou devagar e se deitou.</p>
+        <p>— Deita aqui comigo.</p>
+        <p>Caio se deitou ao seu lado. Permaneceram um tempo em silêncio.</p>
+        <p>— E aí, como foi? — Repousou a mão sobre a coxa de Caio.</p>
+        <p>— Nossa... Foi muito bom. Nossa...</p>
+        <p>— Você é uma delícia! Puxou pro pai — brincou, dando uma risada descontraída.</p>
+        <p>— Valeu. — Caio respondeu com uma risadinha contida, porém genuína. Uma risada tão diferente daquelas forçadas que sempre usava com o pai.</p>
+        <p>— Você tem que tomar banho, né?!</p>
+        <p>— Sim, já tô indo. — Se levantou.</p>
+        <p class="scene">• • •</p>
+        <p>Caio acordou sozinho na manhã seguinte — o pai já tinha saído para o trabalho horas antes — e passou o dia largado, sem conseguir focar no celular ou em qualquer outra coisa. O ocorrido da noite anterior voltava em loops, sem trazer culpa ou remorso, apenas um estranhamento cru.</p>
+        <p>Se masturbou na sala lembrando do peso do corpo de Márcio sobre o seu, do pau entrando e saindo com força, do cheiro de suor. A figura distante do pai parecia ter se desfeito ou se transformado em alguma coisa que ele ainda não conseguia compreender. Já não havia aquela rejeição travada; no lugar disso, uma proximidade estranha, nascida de repente daquela sujeira dividida.</p>
+        <p>Ao voltar do expediente no fim da tarde, Márcio encontrou o filho sentado no sofá. Estava preocupado com o estado de Caio depois de tudo. O encarou por alguns segundos, tentando notar se estava tudo bem. Percebendo Caio relaxado, soltou os ombros.</p>
+        <p>— E aí, filho, tudo bem?</p>
+        <p>— Sim, pai. E você?</p>
+        <p>— Também, só cansado. Que ficou fazendo hoje?</p>
+        <p>— Nada. Passei o dia todo entediado.</p>
+        <p>A voz de Caio já não tinha a defensiva de antes. A resposta saiu fácil, e Márcio notou a mudança logo nas primeiras palavras.</p>
+        <p>Se sentou próximo ao filho, descalçou as botas e tirou a camisa, como de costume. Caio passou os olhos pelo peito peludo e pelos calçados no chão. O desejo continuava ali, agora mais forte que antes.</p>
+        <p>— Pai, posso te perguntar uma coisa?</p>
+        <p>— Sim. — Márcio parou e o olhou com atenção.</p>
+        <p>— Você sempre gostou de homens?</p>
+        <p>— Eu não faço muita distinção, mas sempre me senti mais atraído por homens, sim.</p>
+        <p>— E... Quando você traiu minha mãe... Foi com um cara?</p>
+        <p>Márcio foi pego desprevenido. Pensou antes de responder para medir as palavras, mas não havia mais necessidade de segredos.</p>
+        <p>— Foi sim. Ela nunca comentou isso com você, né?!</p>
+        <p>— Não, nunca tocou no assunto, mas desconfiei que fosse isso.</p>
+        <p>A conversa foi tranquila. Em seguida, mudaram para outros assuntos, sem o peso dos dias anteriores. Falaram da rotina e chegaram a tocar no que tinha acontecido na noite anterior, diretos e sem rodeios. Ficou subentendido que não precisavam — e nem seria saudável — transformar aquilo num hábito, embora ambos estivessem abertos a repetir outras vezes, só não agora. A cumplicidade que surgiu valia mais do que arranjar pretexto para transarem de novo logo no dia seguinte.</p>
+        <p class="scene">• • •</p>
+        <p>O dia seguiu tranquilo, embora essa tranquilidade fosse estranha para eles.</p>
+        <p>No dia seguinte, a viagem de volta exigia que Caio saísse cedo. Ajeitou a mala rápido no quarto. Márcio se arrumava para o turno e não teria como levá-lo à rodoviária. Se aproximou com um sorriso, apoiou a palma firme no ombro do filho e disse:</p>
+        <p>— Tchau, filho. Se cuida. Te amo muito, viu? Não esquece de fechar a porta quando sair e deixar a chave no vaso. Boa viagem! — O abraçou e deu um beijo em sua testa.</p>
+        <p>— Tchau, pai. Obrigado. A gente se fala depois. Até!</p>
+        <p>Márcio saiu para o trabalho e, minutos depois, Caio seguiu para a rodoviária. Ambos caminharam pensando em como aquela relação tinha se transformado, mas ainda não conseguiam defini-la muito bem. De maneira alguma havia um sentimento romântico. Também não era uma relação típica de pai e filho. Uma amizade, sim, mas uma amizade demasiadamente fora dos padrões para ser bem definida. Era necessário definir e rotular? Talvez isso não fosse necessário. O mais importante é que ambos saíram com algo que parecia impossível: um vínculo.</p>
+    </article>
+  </main>
+  <footer class="colophon">
+      <div class="wrap">
+        <div class="name">Leon Tiff</div>
+        <p class="meta"><a href="https://x.com/LeonTiff_">X: @LeonTiff_</a><span class="sep">·</span><a href="https://onnowplay.com/brothersmg">onnowplay.com/brothersmg</a><span class="sep">·</span><a href="mailto:leontiff@proton.me">leontiff@proton.me</a></p>
+      </div>
+    </footer>
+</body>
+</html>
