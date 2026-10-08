@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#141110">
 <meta name="author" content="Leon Tiff">
-<meta name="description" content="O colchão no chão era o meu lugar, meu quarto.">
+<meta name="description" content="Conto de Leon Tiff. Acesso protegido por senha.">
 <title>Espelho — Leon Tiff</title>
 <style>
     :root{
@@ -27,9 +27,11 @@
       font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua","Times New Roman",serif;
       font-size:16px;
       line-height:1.6;
+      -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
     }
     ::selection{ background:rgba(194,139,90,.35) }
-    img{ max-width:100%; height:auto }
+    img{ max-width:100%; height:auto; -webkit-user-drag:none }
+    input, textarea{ -webkit-user-select:text; user-select:text }
     a{ color:inherit }
     a:focus-visible{ outline:2px solid var(--accent-hi); outline-offset:3px; border-radius:3px }
     .wrap{ max-width:62rem; margin:0 auto; padding-left:clamp(1.05rem,4vw,2rem); padding-right:clamp(1.05rem,4vw,2rem) }
@@ -64,6 +66,24 @@
     article p.scene{ text-align:center; color:var(--dim); letter-spacing:.62em; text-indent:.62em; margin:2em 0 1.85em; font-size:.95em }
     @media (max-width:560px){ article p{ text-align:left } }
 
+    /* porta de senha (conteúdo protegido) */
+    .gate{ max-width:26rem; margin:0 auto; padding:2.3rem 1.5rem 2.5rem; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:.75rem }
+    .gate .icone{ color:var(--accent) }
+    .gate h2{ margin:1rem 0 .4rem; font-size:1.25rem; font-weight:600; letter-spacing:.02em }
+    .gate .dica{ margin:0 0 1.35rem; color:var(--muted); font-size:.95rem }
+    .gate form{ display:flex; gap:.6rem; justify-content:center; align-items:stretch }
+    .gate input{ width:8.5rem; padding:.62rem .8rem; font-size:1.15rem; letter-spacing:.5em; text-indent:.5em; text-align:center; color:var(--text); background:#0f0d0e; border:1px solid var(--line); border-radius:.45rem; font-family:inherit }
+    .gate input:focus{ outline:none; border-color:rgba(194,139,90,.6); box-shadow:0 0 0 3px rgba(194,139,90,.15) }
+    .gate button{ padding:.62rem 1.15rem; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); background:transparent; border:1px solid rgba(194,139,90,.45); border-radius:.45rem; font-family:inherit; cursor:pointer; transition:color .2s,border-color .2s,background .2s }
+    .gate button:hover:enabled{ color:#141110; background:var(--accent) }
+    .gate button:disabled{ opacity:.55; cursor:default }
+    .gate .erro{ min-height:1.3em; margin:.9rem 0 0; color:#c96b6b; font-size:.9rem }
+    .gate.shake{ animation:treme .45s both }
+    @keyframes treme{ 10%,90%{transform:translateX(-2px)} 20%,80%{transform:translateX(3px)} 30%,50%,70%{transform:translateX(-4px)} 40%,60%{transform:translateX(4px)} }
+    #conteudo{ opacity:0; transition:opacity .6s ease }
+    #conteudo.exibir{ opacity:1 }
+    #conteudo[hidden]{ display:none }
+
     /* colofão */
     .colophon{ margin-top:clamp(2.8rem,7vw,4.6rem); border-top:1px solid var(--line); color:var(--muted); font-size:.93rem }
     .colophon .wrap{ padding-top:1.7rem; padding-bottom:2.3rem; text-align:center; line-height:2 }
@@ -87,30 +107,17 @@
       <img src="espelho_onnow.jpg" alt="Capa do conto Espelho — Leon Tiff" width="601" height="750">
     </figure>
     <h1 class="sr-only">Espelho</h1>
-    <article>
-        <p>O colchão no chão era o meu lugar, meu quarto. Sendo o mais novo dos oito filhos numa casa pobre, não sobrou lugar pra mim.</p>
-        <p>Eu dormia de lado, virado pra parede, mas meus olhos nunca fechavam cedo. A luz do abajur que minha mãe insistia em deixar acesa projetava sombras no quarto, e era ali, na penumbra alaranjada, que eu assistia tudo. O ranger da cama de casal começava manso, o estalar do estrado denunciava o movimento. Meu pai não era homem de preliminares demoradas. Ele cobria o corpo da minha mãe com o dele — aquele corpo grande, moreno, peludo — e começava a bombar.</p>
-        <p>Eu ouvia a respiração deles ficar mais funda, enquanto tentavam conter os gemidos. Minha mãe soltava alguns gemidinhos contidos, daqueles que a pessoa tenta abafar no travesseiro pra não acordar ninguém, mas que, quando o tesão aumentava, nem se preocupava muito. Minha piroquinha ficava dura que nem pedra. Eu não me mexia. Só ficava ali, respirando baixinho, vidrado na silhueta trêmula que a luz fraca do abajur projetava na parede: o vulto do meu pai subindo e descendo, subindo e descendo. Eu devia ter uns sete anos na primeira vez que reparei nisso e, a partir daí, toda noite era a mesma coisa.</p>
-        <p>Logo eu já estava mais esperto, deixando de acreditar nas conversas de adulto. Minha irmã mais velha, a Cida, casou cedo e foi morar na casa ao lado. Valdir, seu marido, trabalhava viajando e às vezes ficava semanas fora. A Cida começou a ter problemas na casa — um cano que estourava, uma telha quebrada, a descarga que não funcionava. "Depois vou chamar o pai pra dar uma olhada", ela dizia pra minha mãe. E ela chamava, chamava sempre enquanto minha mãe estava no trabalho.</p>
-        <p>Um dia, depois de muita coisa estragar na casa dela, ela chamou meu pai mais uma vez. Eles saíram, e eu vi eles atravessarem o terreiro e entrar na casa dela. Esperei uns dois minutos, o suficiente pra ele não me ver, e fui atrás. Agachei debaixo da janela da cozinha. A janela estava com a persiana velha quebrada, e dava pra ouvir tudo. Primeiro uns cochichos, uma risadinha abafada da Cida. Depois o barulho inconfundível de roupa sendo tirada, de cochichos avulsos em meio ao silêncio repentino, do baque seco de um corpo se encostando na parede... E aí a voz grossa do meu pai veio bem baixinha: "Vem, chupa."</p>
-        <p>Arregalei os olhos e me concentrei ainda mais nos sons: o vai e vem melado, os gemidos contidos da minha irmã, os grunhidos do meu pai. Fiquei assustado, incrédulo, mas com o pau bem duro. Quando notei que a respiração dele ficou pesada — como quando ele gozava na minha mãe —, voltei ligeiro pra casa.</p>
-        <p>Repeti isso várias vezes. Bati tanta punheta nos meses seguintes que perdi a conta, imaginando a cena do que eu não podia ver. Imaginando minha irmã arreganhada enquanto meu pai socava nela, sem se importar que era sua filha. Eu olhava pra Cida e só conseguia ouvir os gemidos dela na minha cabeça, imaginando ela de quatro pro nosso pai, revirando os olhos enquanto levava pica.</p>
-        <p>Não demorou muito pra eu entender que o buraco era mais embaixo. Muita coisa acontecia. E foi nos fundos do quintal de casa que eu vi o Tino, o açougueiro, ajoelhado. Meu pai encostado no muro, a calça jeans arriada nos joelhos, uma mão apoiada na cabeça careca do Tino. E o Tino mamava. Não tô falando de chupeta de bebê, não. Era uma mamada de verdade, com fome, daquelas que o pau some e volta todo babado por causa da ânsia de vômito. Meu pai segurava a base do pau com uma mão e enfiava na boca do Tino com força, fazendo ele engasgar. A boca do Tino era grande, mas o pau do meu pai era maior.</p>
-        <p>Eu tava agachado atrás de umas madeiras velhas, a mão já dentro do short. Me imaginei ali ajoelhado ao lado do Tino, revezando. Às vezes os dois mamavam ao mesmo tempo, uma lambida aqui, outra ali. Depois o Tino me chupava enquanto meu pai comia minha boca. Eu fantasiava muitas possibilidades, e isso me deixava retardado de tanto tesão.</p>
-        <p>Aí o Tino abriu o olho. Me viu. Deu um pulo pra trás, quase caiu sentado, limpando a boca com as costas da mão. Meu pai levou um segundo a mais pra processar, com o pau ainda duro pra fora. Ele me encarou com uma fúria que eu nunca tinha visto, a testa enrugada, o olho esbugalhado.</p>
-        <p>— Seu moleque filho da puta! — gritou, subindo a calça num tranco.</p>
-        <p>Corri para o quarto dos fundos, como se isso fosse me livrar da bronca.</p>
-        <p>— Gilvan! — Me gritou, furioso. Entrou no quarto e parou na minha frente, apontando o dedo na minha cara. — Se eu souber que tu abriu esse bico pra alguém, vou te encher de porrada até tu mijar sangue. Entendeu? Nem pra tua mãe, nem pros teus irmãos, nem pro caralho de ninguém. Entendeu?</p>
-        <p>Apenas balancei repetidamente a cabeça em concordância, tentando segurar o choro.</p>
-        <p>Ele deu as costas, enquanto o Tino escapava rapidinho pelo portão dos fundos.</p>
-        <p>Hoje entendo que ele não reagiu por raiva, mas por medo. Nunca contei a ninguém, mas bati punheta pensando naquilo por anos. Imaginava o gosto que o Tino estava sentindo, como deveria ser a textura, o pau grande do meu pai causando ânsia ao bater no fundo da garganta. Às vezes me imaginava fazendo com ele o que vi o Tino fazer.</p>
-        <p>Depois disso, fui crescendo e aprendendo meu lugar no mundo. Meus pais e meus irmãos foram seguindo a vida deles, e eu fui entendendo que a herança que aquele velho me deixou não era casa, dinheiro ou sobrenome. Era uma piroca grande e uma safadeza que não tinha fim. O tempo foi passando, fui ficando mais velho e cada vez mais parecido com ele. Aprendi cedo a ler as pessoas, a sentir no ar quando alguém tá a fim, quando a safadeza tá escondida atrás de um sorriso educado ou de uma conversa fiada.</p>
-        <p>Hoje eu olho em volta e vejo o tanto de gente que me procura. Não me acho grande coisa. Tenho uma barriga saliente, os dentes meio tortos e, apesar de eu não ser feio, tô longe de ser bonito. Mas isso nunca me preocupou. O que importa é que eu sei dar o que as pessoas gostam, e tem um monte de vagabunda e de viadinho atrás de mim. E eu retribuo, retribuo do meu jeito. Sempre tem um viadinho querendo mamar, não importa a hora ou o lugar. E eu sempre tô. Retribuo o carinho de cada um deles, fodo gostoso, dou o leite que eles querem e todo mundo sai feliz.</p>
-        <p>Aprendi uma coisa — que começou com a história do Tino — que pra mim é lei: viado é muito melhor que mulher. "Você gosta mais de mulher ou de viado?", me perguntaram outro dia no bar. Nem precisei pensar, e — diferente do meu pai — não escondo de ninguém. O viadinho chega, já vai direto no pau, arranca o leite sem frescura. Ele gosta de rola de verdade. Sabe chupar um saco, sabe mamar uma piroca, sabe engolir toda a porra jogada bem na garganta. Sabe dar com vontade, rebolar em cima, gemer de verdade. E não exige nada além disso. É pica, leite e tchau. Cada um pro seu lado até bater o tesão de novo. Isso é ser homem, e homens se entendem.</p>
-        <p>A mulher não. A mulher quer jantar, quer andar de carro, quer presente, quer se sentir única e especial. E eu não tenho nada disso pra oferecer. Meu capital é meu tesão e meu pau, só isso. Gosto de foder, e fodo pra caralho; modéstia à parte.</p>
-        <p>Penso no meu pai. Ele morreu de infarto quando eu tinha dezesseis anos. Caiu duro no meio da rua quando voltava da padaria. Lamento ele ter ido antes de ver, agora com trinta e nove, o puto que me tornei. Queria muito estar com ele dividindo os viados que pego. Até hoje me pego imaginando: eu comendo um enquanto ele come outro, os dois viadinhos de quatro na cama, gemendo, pedindo rola. Os dois mamando a gente, revezando. Ele e eu trocando olhares cúmplices, falando putaria um pro outro. Imagino o quanto eu poderia, quem sabe, estar aliviando o tesão dele com uma mamada enquanto ele ouvia o rádio no quintal.</p>
-        <p>Ele teria orgulho. O coroa fodia quem queria, sem culpa, sem peso na consciência. E eu saí igualzinho. A mesma fome, a mesma falta de frescura. Queria só ter tido a chance de mostrar tudo isso a ele e dizer: "Obrigado, meu velho."</p>
-    </article>
+    <div id="portao" class="gate" role="region" aria-label="Conteúdo protegido por senha">
+      <svg class="icone" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.3" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <h2>Conto protegido</h2>
+      <p class="dica">Digite a senha de 4 dígitos para ler este conto.</p>
+      <form id="form-senha" autocomplete="off" novalidate>
+        <input id="senha" type="password" inputmode="numeric" maxlength="4" autocomplete="off" spellcheck="false" aria-label="Senha de 4 dígitos" placeholder="••••">
+        <button type="submit">acessar</button>
+      </form>
+      <p class="erro" id="erro" role="alert" aria-live="polite"></p>
+    </div>
+    <article id="conteudo" hidden></article>
   </main>
   <footer class="colophon">
       <div class="wrap">
@@ -118,5 +125,60 @@
         <p class="meta"><a href="https://x.com/LeonTiff_">X: @LeonTiff_</a><span class="sep">·</span><a href="https://onnowplay.com/brothersmg">onnowplay.com/brothersmg</a><span class="sep">·</span><a href="mailto:leontiff@proton.me">leontiff@proton.me</a></p>
       </div>
     </footer>
+  <script type="application/json" id="dados-protegidos">{"iter":600000,"salt":"wN0PqPVXNyQNM9zqv78ppg==","iv":"1eX3wVrhZtFBfajU","ct":"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"}</script>
+  <script>(function(){
+  function emCampo(e){var t=e.target;return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA');}
+  document.addEventListener('contextmenu',function(e){e.preventDefault();});
+  document.addEventListener('dragstart',function(e){e.preventDefault();});
+  document.addEventListener('selectstart',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('copy',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('cut',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('keydown',function(e){
+    if(!(e.ctrlKey||e.metaKey))return;
+    var k=(e.key||'').toLowerCase();
+    if(['c','x','s','u','a','p'].indexOf(k)>=0&&!emCampo(e)){e.preventDefault();}
+  });
+})();</script>
+  <script>(function(){
+  var dados=document.getElementById('dados-protegidos');
+  var cfg=JSON.parse(dados.textContent);
+  var gate=document.getElementById('portao');
+  var form=document.getElementById('form-senha');
+  var inp=document.getElementById('senha');
+  var erro=document.getElementById('erro');
+  var art=document.getElementById('conteudo');
+  var btn=form.querySelector('button');
+  var ocupado=false,tentativas=0;
+  function b64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
+  function treme(){gate.classList.remove('shake');void gate.offsetWidth;gate.classList.add('shake');}
+  inp.addEventListener('input',function(){inp.value=inp.value.replace(/\D/g,'').slice(0,4);});
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(ocupado)return;
+    var senha=inp.value;
+    if(!/^[0-9]{4}$/.test(senha)){erro.textContent='Digite os 4 d\u00edgitos.';treme();return;}
+    ocupado=true;btn.disabled=true;btn.textContent='verificando\u2026';erro.textContent='';
+    var enc=new TextEncoder();
+    crypto.subtle.importKey('raw',enc.encode(senha),'PBKDF2',false,['deriveKey']).then(function(km){
+      return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(cfg.salt),iterations:cfg.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+    }).then(function(key){
+      return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(cfg.iv)},key,b64(cfg.ct));
+    }).then(function(plain){
+      art.innerHTML=new TextDecoder().decode(plain);
+      art.hidden=false;
+      gate.remove();
+      dados.remove();
+      requestAnimationFrame(function(){art.classList.add('exibir');});
+      art.scrollIntoView({block:'start',behavior:'smooth'});
+    }).catch(function(){
+      tentativas++;
+      erro.textContent='Senha incorreta.'+(tentativas>=3?' Verifique a senha com o autor.':'');
+      treme();inp.value='';inp.focus();
+      var espera=Math.min(tentativas*1200,6000);
+      setTimeout(function(){ocupado=false;btn.disabled=false;btn.textContent='acessar';},espera);
+    });
+  });
+  inp.focus();
+})();</script>
 </body>
 </html>

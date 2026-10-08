@@ -27,9 +27,11 @@
       font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua","Times New Roman",serif;
       font-size:16px;
       line-height:1.6;
+      -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
     }
     ::selection{ background:rgba(194,139,90,.35) }
-    img{ max-width:100%; height:auto }
+    img{ max-width:100%; height:auto; -webkit-user-drag:none }
+    input, textarea{ -webkit-user-select:text; user-select:text }
     a{ color:inherit }
     a:focus-visible{ outline:2px solid var(--accent-hi); outline-offset:3px; border-radius:3px }
     .wrap{ max-width:62rem; margin:0 auto; padding-left:clamp(1.05rem,4vw,2rem); padding-right:clamp(1.05rem,4vw,2rem) }
@@ -63,6 +65,24 @@
     article p{ margin:0 0 1.08em; font-size:clamp(1.04rem,.99rem + .3vw,1.16rem); line-height:1.85; text-align:justify; text-justify:inter-word; hyphens:none }
     article p.scene{ text-align:center; color:var(--dim); letter-spacing:.62em; text-indent:.62em; margin:2em 0 1.85em; font-size:.95em }
     @media (max-width:560px){ article p{ text-align:left } }
+
+    /* porta de senha (conteúdo protegido) */
+    .gate{ max-width:26rem; margin:0 auto; padding:2.3rem 1.5rem 2.5rem; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:.75rem }
+    .gate .icone{ color:var(--accent) }
+    .gate h2{ margin:1rem 0 .4rem; font-size:1.25rem; font-weight:600; letter-spacing:.02em }
+    .gate .dica{ margin:0 0 1.35rem; color:var(--muted); font-size:.95rem }
+    .gate form{ display:flex; gap:.6rem; justify-content:center; align-items:stretch }
+    .gate input{ width:8.5rem; padding:.62rem .8rem; font-size:1.15rem; letter-spacing:.5em; text-indent:.5em; text-align:center; color:var(--text); background:#0f0d0e; border:1px solid var(--line); border-radius:.45rem; font-family:inherit }
+    .gate input:focus{ outline:none; border-color:rgba(194,139,90,.6); box-shadow:0 0 0 3px rgba(194,139,90,.15) }
+    .gate button{ padding:.62rem 1.15rem; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); background:transparent; border:1px solid rgba(194,139,90,.45); border-radius:.45rem; font-family:inherit; cursor:pointer; transition:color .2s,border-color .2s,background .2s }
+    .gate button:hover:enabled{ color:#141110; background:var(--accent) }
+    .gate button:disabled{ opacity:.55; cursor:default }
+    .gate .erro{ min-height:1.3em; margin:.9rem 0 0; color:#c96b6b; font-size:.9rem }
+    .gate.shake{ animation:treme .45s both }
+    @keyframes treme{ 10%,90%{transform:translateX(-2px)} 20%,80%{transform:translateX(3px)} 30%,50%,70%{transform:translateX(-4px)} 40%,60%{transform:translateX(4px)} }
+    #conteudo{ opacity:0; transition:opacity .6s ease }
+    #conteudo.exibir{ opacity:1 }
+    #conteudo[hidden]{ display:none }
 
     /* colofão */
     .colophon{ margin-top:clamp(2.8rem,7vw,4.6rem); border-top:1px solid var(--line); color:var(--muted); font-size:.93rem }
@@ -117,5 +137,18 @@
         <p class="meta"><a href="https://x.com/LeonTiff_">X: @LeonTiff_</a><span class="sep">·</span><a href="https://onnowplay.com/brothersmg">onnowplay.com/brothersmg</a><span class="sep">·</span><a href="mailto:leontiff@proton.me">leontiff@proton.me</a></p>
       </div>
     </footer>
+  <script>(function(){
+  function emCampo(e){var t=e.target;return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA');}
+  document.addEventListener('contextmenu',function(e){e.preventDefault();});
+  document.addEventListener('dragstart',function(e){e.preventDefault();});
+  document.addEventListener('selectstart',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('copy',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('cut',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('keydown',function(e){
+    if(!(e.ctrlKey||e.metaKey))return;
+    var k=(e.key||'').toLowerCase();
+    if(['c','x','s','u','a','p'].indexOf(k)>=0&&!emCampo(e)){e.preventDefault();}
+  });
+})();</script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#141110">
 <meta name="author" content="Leon Tiff">
-<meta name="description" content="A caixa de losartana estava sobre a geladeira enferrujada.">
+<meta name="description" content="Conto de Leon Tiff. Acesso protegido por senha.">
 <title>Morfina — Leon Tiff</title>
 <style>
     :root{
@@ -27,9 +27,11 @@
       font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua","Times New Roman",serif;
       font-size:16px;
       line-height:1.6;
+      -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
     }
     ::selection{ background:rgba(194,139,90,.35) }
-    img{ max-width:100%; height:auto }
+    img{ max-width:100%; height:auto; -webkit-user-drag:none }
+    input, textarea{ -webkit-user-select:text; user-select:text }
     a{ color:inherit }
     a:focus-visible{ outline:2px solid var(--accent-hi); outline-offset:3px; border-radius:3px }
     .wrap{ max-width:62rem; margin:0 auto; padding-left:clamp(1.05rem,4vw,2rem); padding-right:clamp(1.05rem,4vw,2rem) }
@@ -64,6 +66,24 @@
     article p.scene{ text-align:center; color:var(--dim); letter-spacing:.62em; text-indent:.62em; margin:2em 0 1.85em; font-size:.95em }
     @media (max-width:560px){ article p{ text-align:left } }
 
+    /* porta de senha (conteúdo protegido) */
+    .gate{ max-width:26rem; margin:0 auto; padding:2.3rem 1.5rem 2.5rem; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:.75rem }
+    .gate .icone{ color:var(--accent) }
+    .gate h2{ margin:1rem 0 .4rem; font-size:1.25rem; font-weight:600; letter-spacing:.02em }
+    .gate .dica{ margin:0 0 1.35rem; color:var(--muted); font-size:.95rem }
+    .gate form{ display:flex; gap:.6rem; justify-content:center; align-items:stretch }
+    .gate input{ width:8.5rem; padding:.62rem .8rem; font-size:1.15rem; letter-spacing:.5em; text-indent:.5em; text-align:center; color:var(--text); background:#0f0d0e; border:1px solid var(--line); border-radius:.45rem; font-family:inherit }
+    .gate input:focus{ outline:none; border-color:rgba(194,139,90,.6); box-shadow:0 0 0 3px rgba(194,139,90,.15) }
+    .gate button{ padding:.62rem 1.15rem; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); background:transparent; border:1px solid rgba(194,139,90,.45); border-radius:.45rem; font-family:inherit; cursor:pointer; transition:color .2s,border-color .2s,background .2s }
+    .gate button:hover:enabled{ color:#141110; background:var(--accent) }
+    .gate button:disabled{ opacity:.55; cursor:default }
+    .gate .erro{ min-height:1.3em; margin:.9rem 0 0; color:#c96b6b; font-size:.9rem }
+    .gate.shake{ animation:treme .45s both }
+    @keyframes treme{ 10%,90%{transform:translateX(-2px)} 20%,80%{transform:translateX(3px)} 30%,50%,70%{transform:translateX(-4px)} 40%,60%{transform:translateX(4px)} }
+    #conteudo{ opacity:0; transition:opacity .6s ease }
+    #conteudo.exibir{ opacity:1 }
+    #conteudo[hidden]{ display:none }
+
     /* colofão */
     .colophon{ margin-top:clamp(2.8rem,7vw,4.6rem); border-top:1px solid var(--line); color:var(--muted); font-size:.93rem }
     .colophon .wrap{ padding-top:1.7rem; padding-bottom:2.3rem; text-align:center; line-height:2 }
@@ -87,275 +107,17 @@
       <img src="morfina_onnow.png" alt="Capa do conto Morfina — Leon Tiff" width="1122" height="1402">
     </figure>
     <h1 class="sr-only">Morfina</h1>
-    <article>
-        <p>A caixa de losartana estava sobre a geladeira enferrujada, ao lado de uma xícara de café que alguém havia esquecido. Plínio apanhou a caixa e saiu pelo terreiro. O Uno azul roncava em ponto morto, tremendo a lataria.</p>
-        <p>— Ô, pai! Teu remédio! — gritou ele, jogando a caixa pela janela aberta.</p>
-        <p>O pai pegou no ar e enfiou no bolso da camisa xadrez sem olhar. No banco de trás, a mãe segurava a Bíblia no colo e um pacote aberto de bolacha recheada. Ela se inclinou para a frente.</p>
-        <p>— Se o bezerro piorar, liga pro Zé Vicente. Não tenta fazer nada sozinho não, Carlos.</p>
-        <p>Carlos se encostou na porteira de madeira, descalço, vestindo uma bermuda caqui surrada e a camiseta cinza suja de terra. Levantou a mão num aceno preguiçoso.</p>
-        <p>— Tá bom, mãe.</p>
-        <p>— E não deixem a porta da dispensa aberta. Os gatos <em>tão</em> roubando as linguiças.</p>
-        <p>— Tá bom.</p>
-        <p>O carro arrancou, levantando terra vermelha. Plínio ficou no meio do terreiro até ver a traseira sumir na curva da estrada. Restou só o latido do cachorro do vizinho, atiçado pelo barulho do motor.</p>
-        <p>Carlos cuspiu de lado e entrou na casa. Plínio o acompanhou.</p>
-        <p>A sala de tijolo cru já parecia vazia demais sem a mãe resmungando no fogão e o pai pigarreando no quarto. Carlos havia servido no Exército dois anos antes; voltou com uma âncora tatuada no antebraço que a mãe detestava e, desde então, circulava pela roça com o desinteresse de quem visita parentes distantes.</p>
-        <p>— Vou dormir um pouco — disse Carlos, jogando o corpo no sofá. — Acordei cedo demais hoje.</p>
-        <p>Plínio não respondeu. Tirou o celular do bolso, olhou para o indicador de sinal — para variar, fraco — e guardou-o novamente.</p>
-        <p>— Plínio. — O irmão chamou do sofá, de olhos fechados. — Não fica aí parado feito poste. Vai fazer alguma coisa.</p>
-        <p>Plínio deu de ombros. Não era nada, apenas o início de um dia sem os pais por perto cobrando serviço que eles já estavam cansados de saber.</p>
-        <p>Entrou na cozinha, abriu a geladeira sem fome e bateu a porta.</p>
-        <p>Carlos se mexeu no estofado, abrindo os olhos.</p>
-        <p>— Olha a geladeira... Vê se fechou direito, tá fazendo um barulho esquisito.</p>
-        <p>— Fechei.</p>
-        <p>— Olha de novo. Tá fazendo barulho ainda.</p>
-        <p>Plínio empurrou a porta novamente até a borracha vedar com um estalo seco. Encostou no balcão de cimento e encarou o irmão. Carlos se espreguiçou, esticando o braço para fora do sofá com o desenho da âncora voltado para cima.</p>
-        <p>— Temos que olhar aquele bezerro — disse Carlos, sentando-se devagar. — Aquela bixeira no umbigo tá piorando.</p>
-        <p>— Eu vi.</p>
-        <p>— Tá fedendo carniça já. <em>Vâmo</em> lá comigo dar uma olhada.</p>
-        <p>O curral ficava depois da baixada do terreiro. O bezerro, um macho castanho sem marcação, estava encostado na taipa, com a cabeça baixa. O umbigo inchado, escuro no centro, acumulava uma secreção amarela nos pelos e larvas vivas. O cheiro podre veio forte antes mesmo de chegarem perto.</p>
-        <p>Carlos agachou-se e firmou a cabeça do bicho com a mão. O bezerro mal reagiu, apenas moveu a orelha.</p>
-        <p>— Tá fodido — disse Carlos. — Isso aqui precisa de injeção. A pomada não vai dar conta.</p>
-        <p>Plínio deu um passo atrás, puxando a gola da camisa para tapar o nariz.</p>
-        <p>— O que vamos fazer?</p>
-        <p>— Temos que dar antibiótico.</p>
-        <p>Carlos soltou o animal e limpou a mão na lateral da bermuda.</p>
-        <p>— Vou ter que ir pra cidade, senão <em>vâmo</em> perder esse bezerro — disse Carlos, levantando-se. — Vou de moto, rapidinho.</p>
-        <p>— Vou também, <em>uai</em>.</p>
-        <p>— Pra quê? Vai lá tratar das galinhas e passa um café pra <em>nóis</em> que já tô voltando. Uma horinha e já tô aqui.</p>
-        <p>Plínio observou o irmão caminhar até a moto e pegar a chave esquecida sobre o esteio.</p>
-        <p>— O tempo tá fechando, <em>sô</em>. Vai rápido que vai chover.</p>
-        <p>Carlos deu de ombros, montou na CG e partiu.</p>
-        <p>Plínio permaneceu no terreiro até o barulho do motor sumir na curva da estrada — hábito que cultivou desde que era pequeno. Na baixada, o bezerro continuava imóvel junto à taipa do curral. Retornou à casa e sentou-se no sofá. Ficou ali encarando o teto de caibros, sem pressa.</p>
-        <p>Levantou-se mais tarde apenas para jogar milho no galinheiro e coar um café que nem chegou a beber. De volta ao estofado, acabou cochilando até o barulho dos primeiros pingos de chuva estalar nas telhas.</p>
-        <p>Já havia passado mais de uma hora, até que o celular vibrou sobre a mesa: Carlos. Atendeu no segundo toque.</p>
-        <p>— Ô, Plínio. É o Zé Vicente. Tá <em>bão</em>?</p>
-        <p>A ligação chiava, entrecortada. Zé Vicente morava próximo, na divisa com as terras do seu Jorge, e tinha o costume de falar com o aparelho afastado do rosto.</p>
-        <p>— Zé? Cadê o Carlos? — Plínio bateu os olhos no relógio de parede.</p>
-        <p>— O Carlos tá aqui no hospital, rapaz. Ele se acidentou no trevo da cidade. Mas fica tranquilo que ele tá bem.</p>
-        <p>Plínio apertou o telefone contra o ouvido sem dizer nada.</p>
-        <p>— Tava vindo pra cá na moto dele e uma caminhonete deu uma fechada. Ele caiu.</p>
-        <p>— O que aconteceu com ele? Por que tá no hospital?</p>
-        <p>— Quebrou os braços. Mas ele tá <em>bão</em>, foi só isso, não se preocupa não.</p>
-        <p>— Os dois?</p>
-        <p>— Foi. Tô aqui no hospital com ele, <em>tão</em> terminando de engessar agora.</p>
-        <p>Plínio correu os olhos pela cozinha vazia.</p>
-        <p>— Que horas foi isso?</p>
-        <p>— Faz uma hora, mais ou menos. Eu tava passando no trevo bem na hora e vi o tombo. Aí parei e trouxe ele pra cá.</p>
-        <p>— Ele tá acordado?</p>
-        <p>— Tá, mas com dor. Deram remédio pra ele na veia. Ele que pediu pra eu te ligar. Falou <em>procê</em> não avisar o seu Antônio e a dona Nazaré.</p>
-        <p>— Por quê?</p>
-        <p>— Porque a dona Nazaré vai ficar preocupada e querer voltar. Vai preocupar ela à toa. Ele falou que depois que passar o susto, ele mesmo conta.</p>
-        <p>Plínio passou a mão livre pela nuca.</p>
-        <p>— E a moto?</p>
-        <p>— A moto tá na caçamba. Assim que liberarem ele, levo ele aí. A moto eu deixo aí amanhã cedo, mas deu uma estragada boa nela, rapaz.</p>
-        <p>— Tá.</p>
-        <p>— Fica sossegado. Ele tá <em>bão</em>. Só vai ter que ficar de molho por um tempo.</p>
-        <p>— Quanto tempo <em>cês</em> vão demorar aí?</p>
-        <p>— Não sei, <em>sô</em>. Saindo daqui eu te ligo de novo.</p>
-        <p>— Tá. Obrigado, Zé.</p>
-        <p>Plínio desligou. Pensou em como seriam as semanas seguintes com Carlos naquela situação.</p>
-        <p class="scene">• • •</p>
-        <p>A suspensão gasta rangeu na porteira antes do fim da tarde. Plínio saiu pela cozinha e esperou no terreiro, que agora estava ensopado pela chuva.</p>
-        <p>A caminhonete velha parou rastejando no barro vermelho. Zé Vicente desceu apoiando as botinas sujas no estribo. Era um homem atarracado, de pescoço curto e pele avermelhada, com um boné surrado do Banco do Brasil enterrado na cabeça.</p>
-        <p>— Trouxe a encomenda — brincou Zé Vicente, dando a volta no capô e puxando o trinco do passageiro.</p>
-        <p>Carlos começou a sair com dificuldade. Colocou uma perna para fora e virou o tronco com cuidado. Os dois antebraços vinham engessados até a palma, suspensos por tiras de pano amarradas ao pescoço, mantendo os cotovelos dobrados junto ao peito. O gesso do braço direito trazia uma mancha avermelhada de sangue seco. As pontas dos dedos apareciam arroxeadas, imóveis.</p>
-        <p>— Pega ele aí, rapaz. Tá meio grogue do remédio.</p>
-        <p>Plínio deu dois passos rápidos e segurou o irmão pela cintura antes que ele perdesse o apoio no estribo. Carlos ergueu o rosto devagar; tinha os olhos baços, fundos, e uma crosta seca de saliva nos cantos da boca.</p>
-        <p>— Quebrou os dois... Puta que pariu — murmurou Plínio, sem tirar os olhos do irmão.</p>
-        <p>— Os dois. O esquerdo foi só trinca, mas o direito quebrou no meio. Falaram no posto que vai demorar pra colar. Mas graças a Deus não aconteceu o pior.</p>
-        <p>Carlos soltou um resmungo arrastado entre os dentes, tombando a testa contra o ombro de Plínio.</p>
-        <p>— Tá meio grogue — explicou Zé Vicente. — Deram morfina lá no hospital. Ele tava urrando de dor, coitado.</p>
-        <p>Zé Vicente ajudou a conduzi-lo até a sala.</p>
-        <p>— Qualquer coisa se precisar me liga. A moto tá lá no posto do Dito. Amanhã eu mando o Juninho trazer. Ou depois. Vou ver.</p>
-        <p>— Obrigado, Zé.</p>
-        <p>— Nada. Cuida dele aí. E não deixa ele dormir de bruços. Vou chegar lá, fica com Deus.</p>
-        <p>— Amém, Zé.</p>
-        <p>Carlos continuou encostado em Plínio, arrastando os pés pelo chão de cimento queimado. Ergueu a cabeça aos poucos, piscando pesado contra a lâmpada amarela.</p>
-        <p>— Tô com sede.</p>
-        <p>Plínio o arrastou até a cozinha e o ajudou a se sentar na cadeira de plástico.</p>
-        <p>— Senta direito.</p>
-        <p>Carlos soltou uma risada frouxa, quase sem ar.</p>
-        <p>— Não consigo. Tô sem mão.</p>
-        <p>Plínio pegou uma caneca de alumínio no filtro de barro, encheu-a até a metade e encostou a borda nos lábios do irmão. Carlos bebeu rápido, com parte da água escorrendo pelo canto da boca até molhar o peito da camiseta. Tomou o resto e jogou a cabeça para trás.</p>
-        <p>— Tô fedendo — disse Carlos.</p>
-        <p>— Tá mesmo.</p>
-        <p>— Preciso mijar.</p>
-        <p>Plínio encarou o irmão por um instante. Carlos não esboçou reação para se levantar.</p>
-        <p>— Então levanta.</p>
-        <p>Carlos se ergueu aos trancos. Plínio passou o braço por baixo da axila do irmão, amparando o peso morto do corpo e sentindo o cheiro forte de suor.</p>
-        <p>— <em>Vâmo</em> lá.</p>
-        <p>Os dois atravessaram o corredor curto.</p>
-        <p>— Até parece que quebrou as pernas, <em>uai</em> — reclamou Plínio.</p>
-        <p>— Eu tô grogue daquela porra de remédio. Morfina, me deram... E mais outro lá... Não sei... — A fala entrecortada. — <em>Cê</em> tá fedendo, tá doido...</p>
-        <p>— Eu? É <em>ocê</em> que tá com essa subaqueira no meu nariz, <em>sô</em>!</p>
-        <p>Pararam diante do vaso sanitário.</p>
-        <p>— Abre meu zíper. Não consigo.</p>
-        <p>Plínio soltou o ar pelos dentes, sem responder. Abaixou-se um pouco, desabotoou o cós da calça do irmão e desceu o zíper. Puxou o elástico da cueca surrada para baixo. Carlos permaneceu quieto, a respiração curta saindo pela boca entreaberta enquanto soltava o jato longo contra a louça. Mantinha o quadril empurrado ligeiramente para a frente, e Plínio sustentava o pano rebaixado com as pontas dos dedos. Um gemido baixo de alívio escapou da garganta de Carlos.</p>
-        <p>— Acabou?</p>
-        <p>— Acabei.</p>
-        <p>Plínio ajeitou a roupa com rapidez, subiu o zíper sem tocar na pele do irmão e abotoou. Carlos não olhou para baixo, manteve os olhos fixos na parede.</p>
-        <p>— Vou te levar pro sofá — disse Plínio.</p>
-        <p>— Tô com fome.</p>
-        <p>— Senta na cozinha, então.</p>
-        <p>Carlos se deixou arrastar pelo corredor, desabando de novo na cadeira de plástico.</p>
-        <p>— O bezerro vai morrer — murmurou Plínio.</p>
-        <p>— Que se foda esse bezerro. Eu que tô morrendo, <em>uai</em>.</p>
-        <p>— Que morrendo o que?! Para de besteira, <em>sô</em>.</p>
-        <p>— Amanhã eu não consigo fazer nada.</p>
-        <p>Ergueu os antebraços engessados alguns centímetros e os deixou cair de novo sobre a mesa.</p>
-        <p>— Nada — repetiu Carlos, fechando os olhos de vez.</p>
-        <p>Plínio retirou a manteiga da geladeira e a passou numa fatia de pão amanhecido que estava sobre a mesa.</p>
-        <p>— Ô... Acorda pra comer.</p>
-        <p>Carlos abriu os olhos devagar. Piscou contra a claridade antes de firmar a vista no irmão.</p>
-        <p>— Tô com fome.</p>
-        <p>— <em>Cê</em> já falou. Come aqui.</p>
-        <p>Plínio aproximou o pedaço da boca do irmão. Carlos abriu os lábios, mordeu e mastigou sem pressa. A manteiga escorreu pelo canto da boca. Plínio esperou que ele engolisse para limpar a pele com a ponta do polegar. Esfregou o dedo na própria calça suja de barro e levou novamente o pão à boca.</p>
-        <p>— Tá sem sal — disse Carlos.</p>
-        <p>— Não botei sal.</p>
-        <p>— A mãe bota.</p>
-        <p>— A mãe não tá aqui. Come logo.</p>
-        <p>Carlos deu mais uma mordida, agora encarando Plínio com as pupilas dilatadas. Não desviou o olhar.</p>
-        <p>— Que <em>cê</em> tá me encarando?</p>
-        <p>— Tô encarando não — respondeu enquanto mastigava.</p>
-        <p>— Tá sim.</p>
-        <p>Carlos soltou uma risada curta, quase um sopro.</p>
-        <p>— Tô vendo o tanto que <em>ocê</em> é bonito, <em>uai</em>.</p>
-        <p>— <em>Uai</em>, tá doido?</p>
-        <p>Carlos não respondeu. Mastigou o resto até engolir.</p>
-        <p>— Tô fedendo, não tô?</p>
-        <p>— Tá. Tá com cheiro de subaqueira e hospital.</p>
-        <p>Carlos deu um sorriso frouxo.</p>
-        <p>— Quero tomar banho.</p>
-        <p>Plínio parou com a mão no ar.</p>
-        <p>— <em>Cê</em> vai ter que me dar banho — Carlos continuou.</p>
-        <p>— Quê?</p>
-        <p>— Banho. Não consigo...</p>
-        <p>Plínio largou o restante do pão sobre a mesa. Apesar de óbvio, ainda não havia pensado nisso.</p>
-        <p>— Tem que ser agora? Espera <em>cê</em> melhorar um pouco.</p>
-        <p>— Mas eu tô <em>bão</em>. Quero tirar essa inhaca do corpo.</p>
-        <p>— <em>Cê</em> tá dopado. Pode escorregar.</p>
-        <p>— É só <em>ocê</em> me segurar, <em>uai</em>.</p>
-        <p>Carlos tentou firmar os pés no chão e levantar o corpo. Plínio deu um passo e segurou o tronco do irmão. O peso dele veio inteiro contra o peito de Plínio.</p>
-        <p>— Segura direito — murmurou Carlos. — Tô tonto.</p>
-        <p>— <em>Ocê</em> é muito mole, Carlos. Nunca vi ninguém dopado assim porque quebrou os braços.</p>
-        <p>— <em>Cê</em> fala porque não foi <em>ocê</em> — respondeu sem parecer incomodado.</p>
-        <p>Plínio conduziu o irmão até o banheiro. A lâmpada piscou antes de firmar uma luz amarela. O chuveiro enferrujado pendia torto, com o fio descascado saindo do cano.</p>
-        <p>— Senta no vaso — disse Plínio.</p>
-        <p>— Não quero cagar. Quero tomar banho.</p>
-        <p>— Cagar não, porra! Só <em>procê</em> não cair. — O tom de voz agora impaciente.</p>
-        <p>— Vou tomar banho no vaso?</p>
-        <p>— Não... — Plínio suspirou. — Fica quieto, Carlos. <em>Cê</em> tá chato igual bêbado.</p>
-        <p>Plínio girou o registro. A água espirrou fria antes de chiar na resistência e soltar vapor. Virou-se para o irmão.</p>
-        <p>— Tira minha roupa — disse Carlos.</p>
-        <p>Plínio deu um passo à frente. Puxou a barra da camiseta para cima, devagar. Carlos levantou os cotovelos engessados até onde a atadura permitia, soltando um gemido curto de dor. O tecido subiu pela cabeça, descobrindo o peito largo e a barriga coberta de pelos escuros. Agachou-se logo em seguida e desatou as botinas do irmão, puxando um pé de cada vez. As meias pretas saíram empastadas de suor.</p>
-        <p>Soltou o botão de metal e desceu o zíper da calça. A peça caiu até os tornozelos. Carlos vestia uma boxer cinza, gasta, com o elástico frouxo e um pequeno rasgo perto da coxa.</p>
-        <p>Plínio fixou os olhos no volume entre as pernas do irmão. Carlos mantinha a cabeça erguida, com a vista perdida no teto.</p>
-        <p>Desceu as mãos e puxou a cueca até os joelhos. O pau mole e peludo tombou para fora. O cheiro de suor abafado e pele quente imediatamente atingiu suas narinas. Carlos ergueu uma perna, depois a outra, se livrando das roupas. Plínio chutou a trouxa de roupa para o canto seco junto à porta.</p>
-        <p>— Vai — disse Carlos, apontando o queixo para o <em>box</em>.</p>
-        <p>— Espera, <em>sô</em>!</p>
-        <p>Plínio o conduziu pelo braço, a água espirrando contra o cimento e molhando a barra da própria calça. Segurou Carlos pelo quadril e o empurrou devagar para debaixo do chuveiro, cuidando inutilmente para que o gesso amarrado ao pescoço ficasse fora do jato direto. A água correu pelo corpo do irmão, ensopando os pelos do peito, a curva da barriga e o pau mole.</p>
-        <p>Plínio apanhou o sabonete e esfregou-o nas palmas até formar uma espuma densa. Começou pelo pescoço do irmão, esfregando com cuidado ao redor das ataduras presas à nuca. Esfregou os ombros largos, as axilas e as costelas, deslizando a pele áspera das mãos contra o tronco molhado. A água do chuveiro já encharcava a própria camisa.</p>
-        <p>— Tá molhando tua roupa, idiota — disse Carlos, baixando a cabeça e olhando para Plínio.</p>
-        <p>— Não tem como não molhar, <em>uai</em>.</p>
-        <p>— Tira, <em>uai</em>. <em>Cê</em> tá tudo sujo também.</p>
-        <p>— <em>Uai</em>, e <em>nóis</em> vai ficar pelado aqui?</p>
-        <p>Carlos soltou uma risada mole e cuspiu a água que entrava pelo canto da boca.</p>
-        <p>— <em>Uai</em>, e daí? Para de ser bobo, <em>sô</em>. Vai ficar aí molhando igual jeca?</p>
-        <p>Plínio encarou o irmão. O rosto de Carlos tinha voltado àquela quietude pesada da morfina, com o olhar perdido na parede.</p>
-        <p>Plínio hesitou por alguns segundos até decidir, de sopetão, tirar a roupa. Puxou a camiseta ensopada pela cabeça e a atirou para fora do <em>box</em>. Puxou a calça e a cueca de uma só vez, arremessando todas as peças para fora.</p>
-        <p>— Lava minhas costas — disse Carlos, quase de olhos fechados.</p>
-        <p>Virou o corpo devagar, escorando a testa no azulejo manchado enquanto a água batia direto nas escápulas. Plínio passou as mãos espumadas pelas costas largas do irmão, acompanhando o sulco da coluna até a lombar. Olhou para as nádegas cobertas de pelos escuros. Desceu as mãos e ensaboou rapidamente cada um dos lados.</p>
-        <p>— Lava minha bunda direito, <em>sô</em>!</p>
-        <p>— Já lavei, <em>uai</em>.</p>
-        <p>— Lavou não. Vou ficar com o cu fedendo? Lava...</p>
-        <p>Plínio travou o maxilar. Olhou novamente e enfiou a mão espumada entre a bunda do irmão. Os dedos deslizaram pela pele escorregadia, contornando a entrada do cu. Uma sensação estranha tomou conta, fazendo-o recolher a mão de imediato.</p>
-        <p>— Pronto. Vira.</p>
-        <p>Carlos se virou, encostando a nuca de novo na parede molhada.</p>
-        <p>Plínio baixou a vista para a virilha do irmão. Engoliu em seco. Levou a palma da mão aos pelos pubianos empastados de sabão. Fechou os dedos ao redor da base do pau, subindo num movimento contínuo até a glande. Desceu a mão pelo saco, sustentando o peso solto dos testículos entre os dedos, manipulando a pele enrugada como quem cumpre uma obrigação de rotina. Não ficou muito tempo ali. Jogou um punhado de água por cima e escorregou o sabonete pelas coxas.</p>
-        <p>— Lava direito — reclamou Carlos, com a voz frouxa entre os lábios úmidos. — Não lavou direito...</p>
-        <p>— Ah, Carlos. Não lavou direito o quê?</p>
-        <p>— Meu pinto... A cabeça... Não lavou.</p>
-        <p>Plínio olhou novamente para o pau de Carlos, como se encarasse uma passagem secreta. O sabonete escapou dos dedos lisos e bateu no ralo com um barulho oco. Abaixou-se e o segurou firme novamente. Carlos baixou as pálpebras pesadas, fitando a mão do irmão que ainda tocava de leve a sua coxa direita.</p>
-        <p>— Anda logo. Para de frescura — disse Carlos.</p>
-        <p>— Tá, espera.</p>
-        <p>Plínio suspirou fundo. Fitou a virilha do irmão e notou que o pau não estava tão mole como antes. Sem dizer nada, fechou a mão cheia de espuma em torno da base e puxou a pele para trás, descobrindo a cabeça. A carne escura deslizou macia sob os dedos lambuzados de sabão. Repetiu o movimento com calma. Carlos soltou o ar mais pesado pela boca, mas manteve a cabeça encostada na parede. Plínio limpou as dobras entre a glande e o prepúcio, sentindo o pau crescer entre seus dedos. Decidiu parar, mesmo que, no fundo, sentisse uma estranha vontade de continuar.</p>
-        <p>— Continua — disse Carlos, com a voz arrastada, mas firme.</p>
-        <p>Plínio não respondeu. Levou novamente a mão, sentindo um misto de medo e curiosidade. Voltou a movimentar os dedos, apertando de leve a haste.</p>
-        <p>Carlos afastou as pernas mais um palmo, apoiando a bunda no azulejo molhado. O pau já estava quase duro. Plínio baixou os olhos e olhou para o próprio pau, que também estava ficando duro. Seu coração disparou. Tentou torcer o quadril de lado para esconder, sem sucesso.</p>
-        <p>Carlos inclinou o rosto para a frente e olhou para baixo. Olhou para o próprio pau e, em seguida, para o de Plínio. Não desviou o olhar.</p>
-        <p>Plínio tirou a mão e desceu o sabonete pela coxa de Carlos, fingindo terminar o enxágue.</p>
-        <p>— Tá duro também... O teu — disse Carlos, num tom seco de quem apenas constata um fato.</p>
-        <p>— Não — respondeu Plínio, curvando o tronco para a frente e aproximando ainda mais o rosto do quadril do irmão.</p>
-        <p>— Tá sim. Vai, continua — falou Carlos, com uma naturalidade crua.</p>
-        <p>Plínio não retrucou. Segurou novamente o pau do irmão e começou a movimentar. Com a mão esquerda livre, segurou a base do próprio pau, mexendo em sincronia. Carlos viu o gesto e entreabriu os lábios, acompanhando com o olhar o movimento duplo.</p>
-        <p>A fricção ganhou ritmo, com o estalo da mão molhada contra a pele somando-se ao chiado constante da água.</p>
-        <p>— Caralho — murmurou Carlos, baixinho.</p>
-        <p>Plínio encarou o rosto do irmão. Ao notar o olhar fixo de Carlos, desviou o seu, inseguro.</p>
-        <p>— Deixa eu ver — pediu Carlos.</p>
-        <p>— Ver o quê?</p>
-        <p>— Teu pau.</p>
-        <p>Plínio recuou meio passo. Carlos arqueou o corpo para frente.</p>
-        <p>— Cuidado pra não cair — alertou Plínio.</p>
-        <p>— Nunca tinha visto desse jeito.</p>
-        <p>— O quê?</p>
-        <p>— Teu pau duro.</p>
-        <p>Plínio soltou uma risada curta, sem jeito, mas manteve a pegada firme no pau do irmão.</p>
-        <p>— Vai, continua.</p>
-        <p>Plínio apertou o ritmo, batendo o pau de Carlos até o limite da cabeça exposta, sem soltar o próprio.</p>
-        <p>— Isso... — Carlos soltou o ar entre os dentes. — Vai...</p>
-        <p>Continuaram ali por mais alguns minutos. O som das mãos e das respirações cada vez mais alto.</p>
-        <p>O corpo de Carlos estremeceu de repente, os joelhos se dobraram. Sem aviso, o primeiro jato de porra saiu, atingindo a bochecha de Plínio. Carlos soltou um gemido alto que assustou Plínio. Plínio passou as costas da mão esquerda pelo rosto, espalhando o gozo morno na pele úmida.</p>
-        <p>— Ah não, viado, você gozou na minha cara, porra! — A tentativa de parecer incomodado soou pouco convincente.</p>
-        <p>Carlos não disse nada, manteve-se de olhos fechados, ofegante.</p>
-        <p>Plínio soltou o pau do irmão. Levantou-se e fechou o registro do chuveiro sem ter tomado o próprio banho. Puxou a toalha cinzenta pendurada do lado de fora do <em>box</em> e secou o corpo de Carlos com pressa, sem olhar para o rosto dele. Em seguida, passou o tecido áspero no próprio corpo. Carlos manteve o olhar perdido em algum ponto da parede atrás de Plínio, evitando contato visual.</p>
-        <p>Secos, saíram os dois nus do banheiro abafado, Plínio amparando o irmão pelo ombro. Carlos virou a cabeça devagar, os olhos ainda vermelhos.</p>
-        <p>— Quero dormir — disse Carlos.</p>
-        <p>— Tá.</p>
-        <p>Foram para o quarto. Plínio ajudou Carlos a se deitar na cama. Pegou duas bermudas limpas no guarda-roupas e vestiu a própria primeiro. Em seguida, enfiou a outra pelas pernas do irmão, sem cueca.</p>
-        <p>— Apaga a luz — murmurou Carlos, já de olhos fechados.</p>
-        <p>Plínio levou a mão ao interruptor. Antes de apagar a luz, olhou rapidamente para o irmão deitado de costas, de boca entreaberta e com os dois braços engessados sobre o peito. Apagou. Saiu do quarto, sabendo que não pregaria os olhos tão cedo. Foi até a cozinha, encheu uma caneca com o resto de café e sentou-se na cadeira de plástico, encarando a superfície da mesa.</p>
-        <p>Mais tarde, deitou-se no sofá e tentou gozar, mas a preocupação impediu o tesão. Enfim foi para a cama, mas dormiu pouco.</p>
-        <p class="scene">• • •</p>
-        <p>Plínio acordou com o baque surdo do gesso batendo na madeira da cama. Carlos tentava se sentar, sem o apoio dos braços. Plínio levantou-se num salto e foi segurar o irmão.</p>
-        <p>— Não precisa, não tô mais dopado — disse Carlos, seco. — Tô com dor. Pega o remédio lá pra mim.</p>
-        <p>— Onde tá?</p>
-        <p>— Não sei, <em>uai</em>. Procura — respondeu com rispidez.</p>
-        <p>Plínio saiu do quarto e foi até a cozinha. Encontrou a cartela sobre a geladeira: naproxeno, 550 mg. Encheu um copo d'água, retirou um comprimido da cartela e retornou ao quarto.</p>
-        <p>Carlos continuava na mesma posição, olhando para o chão de cimento queimado.</p>
-        <p>Plínio colocou o comprimido na boca do irmão e levou o copo aos seus lábios. Carlos engoliu e se levantou de imediato, caminhando em direção à cozinha.</p>
-        <p>— Vem cá, põe uma xícara de café pra mim.</p>
-        <p>— Tá gelado já, é de ontem.</p>
-        <p>— Não tem problema.</p>
-        <p>Plínio serviu a xícara e a levou à boca do irmão. Carlos tomou dois goles curtos, sem apetite. Plínio largou a louça na mesa e pegou o pacote de pão de forma. Passou manteiga numa fatia, partiu-a em pedaços e ficou de pé ao lado da cadeira, colocando um por vez na boca do irmão. Carlos mastigou devagar, de cabeça baixa.</p>
-        <p>Ambos sabiam o que o outro estava pensando.</p>
-        <p>— Esse café tá muito ruim. Tem suco?</p>
-        <p>Plínio abriu a geladeira e pegou uma jarra de suco de laranja guardada há dois dias. Serviu-o num copo e deu na boca de Carlos.</p>
-        <p>— Tá sem açúcar... E amargo — reclamou, torcendo o canto da boca.</p>
-        <p>— Então não toma! — Plínio levantou a voz com impaciência. — É o que tem.</p>
-        <p>Carlos não rebateu. Olhou para os próprios antebraços engessados.</p>
-        <p>— Dói pra caralho... Que merda — resmungou. — Tô com vontade de mexer as mãos, puta que pariu.</p>
-        <p>— Logo passa.</p>
-        <p>— "Logo passa" nada! Seis semanas, o médico falou. Que merda! — O tom saiu mais desanimado do que irritado. — O Zé Vicente vai trazer a moto hoje?</p>
-        <p>— Ele disse que sim.</p>
-        <p>— E o bezerro?</p>
-        <p>— A gente liga pro veterinário.</p>
-        <p>— Vai lá olhar ele... Os pai ligaram?</p>
-        <p>— Não. Na verdade, esqueci de olhar — respondeu Plínio, apalpando a calça atrás do celular.</p>
-        <p>Carlos permaneceu quieto, com a testa franzida.</p>
-        <p>— A mãe mandou mensagem, só disse "chegamos".</p>
-        <p>— Então responde ela. Não conta nada ainda.</p>
-        <p>Plínio arrastou a cadeira ao lado e sentou-se. O relógio de parede batia os segundos com o tique seco de costume.</p>
-        <p>— Ontem... — começou Carlos, mas interrompeu a fala.</p>
-        <p>Plínio ficou com a faca de ponta redonda suspensa na mão, esperando. Carlos entreabriu os lábios outra vez, hesitou e permaneceu calado.</p>
-        <p>— Ontem o quê? — perguntou Plínio.</p>
-        <p>Carlos baixou a vista para a toalha de plástico da mesa, fixando o reflexo turvo na lateral do bule de alumínio.</p>
-        <p>— Nada — disse Carlos. — Esquece.</p>
-        <p>Plínio não insistiu.</p>
-        <p>Lá fora, o cachorro latiu na baixada.</p>
-        <p>— Esqueci de dar comida pro Batoré — disse Plínio, empurrando a cadeira para trás.</p>
-        <p>— Então vai lá, antes que ele mate alguma galinha.</p>
-        <p>Carlos permaneceu ali com o olhar perdido. Nada foi dito sobre o dia anterior. O dia seguia sem conclusão, a vida apenas continuando naquele casebre onde as paredes pareciam mais sufocantes e menos vazias do que antes.</p>
-    </article>
+    <div id="portao" class="gate" role="region" aria-label="Conteúdo protegido por senha">
+      <svg class="icone" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.3" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <h2>Conto protegido</h2>
+      <p class="dica">Digite a senha de 4 dígitos para ler este conto.</p>
+      <form id="form-senha" autocomplete="off" novalidate>
+        <input id="senha" type="password" inputmode="numeric" maxlength="4" autocomplete="off" spellcheck="false" aria-label="Senha de 4 dígitos" placeholder="••••">
+        <button type="submit">acessar</button>
+      </form>
+      <p class="erro" id="erro" role="alert" aria-live="polite"></p>
+    </div>
+    <article id="conteudo" hidden></article>
   </main>
   <footer class="colophon">
       <div class="wrap">
@@ -363,5 +125,60 @@
         <p class="meta"><a href="https://x.com/LeonTiff_">X: @LeonTiff_</a><span class="sep">·</span><a href="https://onnowplay.com/brothersmg">onnowplay.com/brothersmg</a><span class="sep">·</span><a href="mailto:leontiff@proton.me">leontiff@proton.me</a></p>
       </div>
     </footer>
+  <script type="application/json" id="dados-protegidos">{"iter":600000,"salt":"FHYEqtmgrj3upjovtCSVKQ==","iv":"yln7ibAugJj7Csx5","ct":"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"}</script>
+  <script>(function(){
+  function emCampo(e){var t=e.target;return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA');}
+  document.addEventListener('contextmenu',function(e){e.preventDefault();});
+  document.addEventListener('dragstart',function(e){e.preventDefault();});
+  document.addEventListener('selectstart',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('copy',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('cut',function(e){if(!emCampo(e))e.preventDefault();});
+  document.addEventListener('keydown',function(e){
+    if(!(e.ctrlKey||e.metaKey))return;
+    var k=(e.key||'').toLowerCase();
+    if(['c','x','s','u','a','p'].indexOf(k)>=0&&!emCampo(e)){e.preventDefault();}
+  });
+})();</script>
+  <script>(function(){
+  var dados=document.getElementById('dados-protegidos');
+  var cfg=JSON.parse(dados.textContent);
+  var gate=document.getElementById('portao');
+  var form=document.getElementById('form-senha');
+  var inp=document.getElementById('senha');
+  var erro=document.getElementById('erro');
+  var art=document.getElementById('conteudo');
+  var btn=form.querySelector('button');
+  var ocupado=false,tentativas=0;
+  function b64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
+  function treme(){gate.classList.remove('shake');void gate.offsetWidth;gate.classList.add('shake');}
+  inp.addEventListener('input',function(){inp.value=inp.value.replace(/\D/g,'').slice(0,4);});
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(ocupado)return;
+    var senha=inp.value;
+    if(!/^[0-9]{4}$/.test(senha)){erro.textContent='Digite os 4 d\u00edgitos.';treme();return;}
+    ocupado=true;btn.disabled=true;btn.textContent='verificando\u2026';erro.textContent='';
+    var enc=new TextEncoder();
+    crypto.subtle.importKey('raw',enc.encode(senha),'PBKDF2',false,['deriveKey']).then(function(km){
+      return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(cfg.salt),iterations:cfg.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+    }).then(function(key){
+      return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(cfg.iv)},key,b64(cfg.ct));
+    }).then(function(plain){
+      art.innerHTML=new TextDecoder().decode(plain);
+      art.hidden=false;
+      gate.remove();
+      dados.remove();
+      requestAnimationFrame(function(){art.classList.add('exibir');});
+      art.scrollIntoView({block:'start',behavior:'smooth'});
+    }).catch(function(){
+      tentativas++;
+      erro.textContent='Senha incorreta.'+(tentativas>=3?' Verifique a senha com o autor.':'');
+      treme();inp.value='';inp.focus();
+      var espera=Math.min(tentativas*1200,6000);
+      setTimeout(function(){ocupado=false;btn.disabled=false;btn.textContent='acessar';},espera);
+    });
+  });
+  inp.focus();
+})();</script>
 </body>
 </html>
